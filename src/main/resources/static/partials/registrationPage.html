@@ -5,26 +5,26 @@
       <span class="sr-only">Error:</span>
       {{error.data.message}}
     </div>
-    <form class="login-form" ng-submit="login()">
+    <form class="login-form" ng-submit="register()">
       <div class="form-group">
         <label>Ime:</label><br>
-        <input type="text" ng-model="name" class="form-control"/>
+        <input type="text" ng-model="user.name" class="form-control"/>
       </div>
       <div class="form-group">
         <label>Prezime:</label>
-        <input type="text" ng-model="surname" class="form-control"/>
+        <input type="text" ng-model="user.surname" class="form-control"/>
       </div>
       <div class="form-group">
         <label>Username:</label><br>
-        <input type="text" ng-model="username" class="form-control"/>
+        <input type="text" ng-model="user.username" class="form-control"/>
       </div>
       <div class="form-group">
         <label>Password:</label><br>
-        <input type="password" ng-model="username" class="form-control"/>
+        <input type="password" ng-model="user.password" class="form-control"/>
       </div>
       <div class="form-group">
         <label>Ponovljeni password:</label><br>
-        <input type="password" ng-model="username" class="form-control"/>
+        <input type="password" ng-model="passwordRepeat" class="form-control"/>
       </div>
 
       <span><input type="submit" value="Login" class="btn btn-default"/>
