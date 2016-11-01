@@ -55,13 +55,14 @@ public class UserController {
 	}
 	
 	@RequestMapping("/registration")
-	public void registration(@RequestBody final UserData data) throws ServletException{
+	public UserData registration(@RequestBody final UserData data) throws ServletException{
 		RegisteredUser newUser=new RegisteredUser();
 		newUser.setUsername(data.username);
 		newUser.setPassword(data.password);
 		newUser.setName(data.name);
 		newUser.setSurname(data.surname);
 		ur.save(newUser);
+		return data;
 	}
 	
 
