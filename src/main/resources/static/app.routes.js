@@ -1,0 +1,12 @@
+app.config(function($routeProvider){
+  $routeProvider.when('/',{
+    templateUrl:"partials/homePage.html",
+    controller:'homeController'
+  }).when('/login',{
+    templateUrl:"partials/loginPage.html",
+    controller:"loginController"
+  }).when('/registration',{
+    templateUrl:"partials/registrationPage.html",
+    controller:"registrationController"
+  })
+})
