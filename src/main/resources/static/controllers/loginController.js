@@ -10,7 +10,6 @@ app.controller('loginController', ['AuthService','$scope','$http','$log','$rootS
             $scope.login = function() {
                 $scope.error = null;
                 AuthService.login($scope.userName,$scope.password).then(function(token) {
-                    $scope.token = token;
                     $rootScope.token = token;
                     $rootScope.userName=$scope.userName;
                     $http.defaults.headers.common.Authorization = 'Bearer ' + token;

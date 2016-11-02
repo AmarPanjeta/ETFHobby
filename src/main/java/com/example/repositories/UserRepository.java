@@ -15,6 +15,7 @@ public interface UserRepository extends CrudRepository<RegisteredUser, Long> {
 	
 	RegisteredUser findFirstByUsernameAndPassword(@Param("username") String username,@Param("password")String password);
 	
-	RegisteredUser findByUsername(String username);
+	RegisteredUser findByUsername(@Param("username") String username);
+
 	
 }
