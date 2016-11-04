@@ -53,7 +53,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li ng-show="!logged()" ng-class="{active:nav.tab('loginController')}"><a href="#/login"><span class="glyphicon glyphicon-user"></span>Login</a></li>
         <li ng-show="!logged()" ng-class="{active:nav.tab('registrationController')}"><a href="#/registration"><span class="glyphicon glyphicon-log-in"></span> Registracija</a></li>
-        <li ng-show="logged()"  ng-class="{active:nav.tab('homeController')}"><a href="" ng-click=""><span class="glyphicon glyphicon-link"></span>Hobiji</a></li>
+        <li ng-show="logged()"  ng-class="{active:nav.tab('homeController')}"><a href="#/hobbies" ng-click=""><span class="glyphicon glyphicon-link"></span>Hobiji</a></li>
        
         <li ng-show="logged()"><a href="" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
