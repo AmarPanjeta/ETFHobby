@@ -8,13 +8,17 @@ app.config(function($routeProvider){
   }).when('/registration',{
     templateUrl:"partials/registrationPage.html",
     controller:"registrationController"
+  }).when("/hobbies/add",{
+    templateUrl:"partials/addHobbyPage.html",
+    controller: "addHobbyController"
   }).when("/hobbies",{
     templateUrl: "partials/hobbiesPage.html",
+    controller: "hobbiesController"
      /* resolve: {
        factory: checkRouting
                 }
                 */
-    
+
   }).otherwise("/")
 });
 
@@ -34,6 +38,6 @@ var checkRouting= function (TokenService,$q, $rootScope, $location,$http) {
              });
         return deferred.promise;
     }
-    
+
 };
 */
