@@ -10,30 +10,27 @@ app.config(function($routeProvider){
     controller:"registrationController"
   }).when("/hobbies",{
     templateUrl: "partials/hobbiesPage.html",
-     /* resolve: {
+     resolve: {
        factory: checkRouting
                 }
-                */
+                
     
   }).otherwise("/")
 });
 
-/*
-var checkRouting= function (TokenService,$q, $rootScope, $location,$http) {
-   if ($rootScope.token !== null) {
-        return true;
-    } else {
+
+var checkRouting= function ($q, $rootScope, $location,$http) {
+
         var deferred = $q.defer();
-        TokenService.tokenExists() //obrisano
-            .success(function (response) {
+        if($rootScope.token !== null)
+        {
                 deferred.resolve(true);
-            })
-            .error(function () {
+        }
+        else {
                 deferred.reject();
-                $location.path("/");
-             });
+                $location.path("/login");
+             }
         return deferred.promise;
-    }
+    
     
 };
-*/
