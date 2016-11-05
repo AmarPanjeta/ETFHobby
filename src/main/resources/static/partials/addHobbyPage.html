@@ -1,0 +1,11 @@
+<div class="container">
+  ovdje dodajemo hobi!
+  <form class="login-form" ng-submit="add()">
+    <div class="form-group">
+      <label>Hobi:</label><br>
+      <select ng-model="selectedHobby" ng-options="hobby.name for hobby in hobbies">
+      </select>
+    </div>
+    <span><input type="submit" value="Dodaj" class="btn btn-default"/>
+  </form>
+</div>
