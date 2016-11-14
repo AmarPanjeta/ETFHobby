@@ -1,4 +1,4 @@
-app.controller('addHobbyController',function($scope,$http,$log,$rootScope){
+app.controller('addHobbyController',function($scope,$http,$log,$rootScope,$location){
   $scope.hobbies={}
   $scope.user={};
 
@@ -18,7 +18,7 @@ app.controller('addHobbyController',function($scope,$http,$log,$rootScope){
       userHobby.hobby=$scope.selectedHobby._links.self.href;
       userHobby.user=$scope.user._links.self.href;
       $http.post("http://localhost:8080/userhobbies",userHobby).then(function() {
-        alert("yaaaaaaay");
+        $location.path("/hobbies");
       })
     }
   }
