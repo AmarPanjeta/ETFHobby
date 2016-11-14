@@ -56,6 +56,9 @@ public class UserController {
 	
 	@RequestMapping("/registration")
 	public UserData registration(@RequestBody final UserData data) throws ServletException{
+		if(ur.findByUsername(data.username)!=null){
+			throw new ServletException("Korisnicko ime vec postoji!");
+		}
 		RegisteredUser newUser=new RegisteredUser();
 		newUser.setUsername(data.username);
 		newUser.setPassword(data.password);
