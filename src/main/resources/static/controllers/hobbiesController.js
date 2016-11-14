@@ -1,4 +1,4 @@
-app.controller('hobbiesController',function($scope,$http,$log,$rootScope,$location){
+app.controller('hobbiesController',function($scope,$http,$log,$rootScope,$location,ModalService){
   $scope.hobbies=[];
 
   $log.log("kontroler ucitan!");
@@ -14,5 +14,11 @@ app.controller('hobbiesController',function($scope,$http,$log,$rootScope,$locati
 
   $scope.addHobby=function(){
     $location.path("/hobbies/add");
+  }
+
+  $scope.removeHobby=function(){
+    ModalService.showModal().then(function(){
+      $log.log("pritsnuo okej");
+    })
   }
 })
