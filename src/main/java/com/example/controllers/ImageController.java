@@ -58,6 +58,7 @@ public class ImageController {
 	@RequestMapping(value="/upload/{username}",method=RequestMethod.POST)
 	public ResponseEntity uploadImage(MultipartHttpServletRequest request,@PathVariable String username){
 		RegisteredUser user = userRepository.findByUsername(username);
+		imageUploadService.deleteImage(username);
         try {
             Iterator<String> itr = request.getFileNames();
 

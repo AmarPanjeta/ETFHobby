@@ -22,4 +22,8 @@ public class ImageUploadService {
 	public ProfileImage findByUsername(String username){
 		return profileImageRepository.findByUsername(username);
 	}
+	
+	public void deleteImage(String username){
+		profileImageRepository.deleteByUsername(username);
+	}
 }
