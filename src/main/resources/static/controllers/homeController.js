@@ -17,14 +17,15 @@ app.controller('homeController',function(AuthService,$scope,$location,$rootScope
     $scope.checkRoles();
     $scope.userName=$rootScope.userName;
     $http.get("http://localhost:8080/users/search/findByUsername?username="+$scope.userName).then(function(response){
-      $scope.user=response.data
+      $scope.user=response.data;
+      $scope.profileurl="";
+      $scope.profileurl="http://localhost:8080/download?name="+$scope.userName+"&rand="+Math.random();
     })
 
   }
-  
+
   $scope.upload=function(){
      $location.path("/upload");
   }
-
 
 })

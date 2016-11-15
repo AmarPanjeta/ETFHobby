@@ -4,12 +4,12 @@
   <div ng-show="loggedIn()">
 
     <div class="row">
-          
+
             <h3>Dobro dosli, {{userName}}!</h3>
 
-          
 
- <!--   
+
+ <!--
     <div class="col-md-4">
     <div class="row header">
       <div class="col-sm-4">{{userName}} is a</div>
@@ -30,12 +30,12 @@
 -->
     <div class="col-md-4">
     <div class="row">
-        <img ng-src="{{'http://localhost:8080/download?name='+user.username}}" class="img-responsive img-thumbnail" alt="profilna" />
+        <img ng-src="{{profileurl}}" class="img-responsive img-thumbnail" alt="profilna" />
       </div>
       <button class="btn" style="padding: 10px; margin: 10px; margin-left: 28%;" ng-click="upload()">Promijeni profilnu</button>
       </div>
 
-    <div class="col-md-4"> 
+    <div class="col-md-4">
     <div class="row">
       <div class="col-sm-4">Korisnicko ime: </div>
       <div class="col-sm-2"><p ng-model="user.username">{{user.username}}</p></div>
@@ -48,7 +48,7 @@
       <div class="col-sm-2">Ime:</div>
       <div class="col-sm-2"><p ng-model="user.name">{{user.name}}</p></div>
     </div>
-   
+
 </div>
 
 
