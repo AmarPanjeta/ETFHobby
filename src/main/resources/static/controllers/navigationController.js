@@ -1,4 +1,4 @@
-app.controller('navigationController',function($rootScope,$scope,$http,$route){
+app.controller('navigationController',function($rootScope,$location,$scope,$http,$route){
 
   $rootScope.greeting = '';
   $rootScope.token = null;
@@ -22,5 +22,9 @@ app.controller('navigationController',function($rootScope,$scope,$http,$route){
     $rootScope.token=null;
     $http.defaults.headers.common.Authorization = '';
   };
+
+  $scope.profile=function(){
+    $location.path("/");
+  }
 
 });

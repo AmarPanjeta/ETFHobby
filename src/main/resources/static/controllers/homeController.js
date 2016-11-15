@@ -1,4 +1,4 @@
-app.controller('homeController',function(AuthService,$scope,$rootScope,$http){
+app.controller('homeController',function(AuthService,$scope,$location,$rootScope,$http){
 
 
 
@@ -21,7 +21,10 @@ app.controller('homeController',function(AuthService,$scope,$rootScope,$http){
     })
 
   }
-
+  
+  $scope.upload=function(){
+     $location.path("/upload");
+  }
 
 
 })

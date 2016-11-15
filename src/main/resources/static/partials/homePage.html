@@ -2,12 +2,15 @@
   <h1>Dobrodosli na home page</h1>
 
   <div ng-show="loggedIn()">
-    <div class="row">
-      <div class="col-md-6">
-        <h3><span class="label label-success">Uspjesna prijava!</span> Welcome {{userName}}</h3>
 
-      </div>
-      <div class="col-md-4">
+    <div class="row">
+          
+            <h3>Dobro dosli, {{userName}}!</h3>
+
+          
+
+ <!--   
+    <div class="col-md-4">
     <div class="row header">
       <div class="col-sm-4">{{userName}} is a</div>
     </div>
@@ -24,26 +27,29 @@
       <div class="col-sm-2"><span class="glyphicon glyphicon-ok" aria-hidden="true" ng-show="roleFoo"></span></div>
     </div>
       </div>
-
-
+-->
     <div class="col-md-4">
-
     <div class="row">
-      <div class="col-sm-4">Username: </div>
+        <img ng-src="{{'http://localhost:8080/download?name='+user.username}}" class="img-responsive img-thumbnail" alt="profilna" />
+      </div>
+      <button class="btn" style="padding: 10px; margin: 10px; margin-left: 28%;" ng-click="upload()">Promijeni profilnu</button>
+      </div>
+
+    <div class="col-md-4"> 
+    <div class="row">
+      <div class="col-sm-4">Korisnicko ime: </div>
       <div class="col-sm-2"><p ng-model="user.username">{{user.username}}</p></div>
     </div>
       <div class="row">
-      <div class="col-sm-2">Surname:</div>
+      <div class="col-sm-2">Prezime:</div>
       <div class="col-sm-2"><p ng-model="user.surname">{{user.surname}}</p></div>
     </div>
       <div class="row">
-      <div class="col-sm-2">Name:</div>
+      <div class="col-sm-2">Ime:</div>
       <div class="col-sm-2"><p ng-model="user.name">{{user.name}}</p></div>
     </div>
-      </div>
-      <div class="col-md-4">
-        <img ng-src="{{'http://localhost:8080/download?name='+user.username}}" alt="profilna" />
-      </div>
+   
+</div>
 
 
 
