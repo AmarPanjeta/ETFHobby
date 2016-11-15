@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class ProfileImage {
@@ -13,6 +14,10 @@ public class ProfileImage {
 	private String name;
 	private byte[] image;
 	private String mimeType;
+	
+	@ManyToOne
+	private RegisteredUser user;
+	
 	public long getId() {
 		return id;
 	}
@@ -36,14 +41,24 @@ public class ProfileImage {
 	}
 	public void setMimeType(String mimeType) {
 		this.mimeType = mimeType;
+	}	
+	public RegisteredUser getUser() {
+		return user;
+	}
+	public void setUser(RegisteredUser user) {
+		this.user = user;
 	}
 	
 	public ProfileImage() {
-	}
-	
-	public ProfileImage(String name,byte[] image,String type){
+	}	public ProfileImage(String name,byte[] image,String type){
 		this.name=name;
 		this.image=image;
 		this.mimeType=type;
+	}
+	public ProfileImage(String name,byte[] image,String type,RegisteredUser user){
+		this.name=name;
+		this.image=image;
+		this.mimeType=type;
+		this.user=user;
 	}
 }

@@ -3,7 +3,7 @@ function dropzone() {
     return function(scope, element, attrs) {
 
         var config = {
-            url: 'http://localhost:8080/upload',
+            url: 'http://localhost:8080/upload/'+scope.username,
             maxFilesize: 100,
             paramName: "uploadfile",
             maxThumbnailFilesize: 10,

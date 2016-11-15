@@ -12,12 +12,14 @@ app.controller('homeController',function(AuthService,$scope,$rootScope,$http){
       return $rootScope.token !== null;
   }
   $scope.user={}
+  $scope.profileurl="";
   if($rootScope.token!==null){
     $scope.checkRoles();
     $scope.userName=$rootScope.userName;
     $http.get("http://localhost:8080/users/search/findByUsername?username="+$scope.userName).then(function(response){
       $scope.user=response.data
     })
+
   }
 
 

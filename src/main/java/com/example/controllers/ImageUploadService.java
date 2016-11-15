@@ -18,4 +18,8 @@ public class ImageUploadService {
 	public void uploadImage(ProfileImage newImage){
 		profileImageRepository.saveAndFlush(newImage);
 	}
+	
+	public ProfileImage findByUsername(String username){
+		return profileImageRepository.findByUsername(username);
+	}
 }
