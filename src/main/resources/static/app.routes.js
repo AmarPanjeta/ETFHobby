@@ -17,9 +17,12 @@ app.config(function($routeProvider){
      resolve: {
        factory: checkRouting
                 }
-                
-    
 
+
+
+  }).when("/upload",{
+    templateUrl:"partials/imageUpload.html",
+    controller:"fileCtrl"
   }).otherwise("/")
 });
 
@@ -37,6 +40,6 @@ var checkRouting= function ($q, $rootScope, $location,$http) {
              }
         return deferred.promise;
 
-    
-    
+
+
 };
