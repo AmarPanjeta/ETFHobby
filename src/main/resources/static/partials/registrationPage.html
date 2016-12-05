@@ -5,10 +5,10 @@
       <span class="sr-only">Error:</span>
       {{error.data.message}}
     </div>
-    <form class="login-form" ng-submit="register()" name="registrationForm" novalidate>
+    <form ng-submit="register()" name="registrationForm" novalidate>
       <div class="form-group" ng-class="{'has-error': registrationForm.name.$dirty && registrationForm.name.$invalid }">
         <label>Ime:</label><br>
-        <input type="text" placeholder="Ime" ng-model="user.name" name="name" class="form-control" ng-minlength="3" ng-pattern="/^[a-zA-Z0-9\s]*$/" required />
+        <input type="text" placeholder="Ime" ng-model="user.name" name="name" class="username" ng-minlength="3" ng-pattern="/^[a-zA-Z0-9\s]*$/" required />
         <span style="color:#a94442" ng-show="registrationForm.name.$dirty && registrationForm.name.$invalid">
           <span ng-show="registrationForm.name.$error.required">*Ime je obavezno!</span>
           <span ng-show="registrationForm.name.$error.minlength">*Ime je prekratko!</span>
@@ -17,7 +17,7 @@
       </div>
       <div class="form-group">
         <label>Prezime:</label>
-        <input type="text" placeholder="Prezime" ng-model="user.surname" name="surname" class="form-control" ng-minlength="3" ng-pattern="/^[a-zA-Z0-9\s]*$/"  required />
+        <input type="text" placeholder="Prezime" ng-model="user.surname" name="surname" class="username" ng-minlength="3" ng-pattern="/^[a-zA-Z0-9\s]*$/"  required />
          <span style="color:#a94442" ng-show="registrationForm.surname.$dirty && registrationForm.surname.$invalid">
           <span ng-show="registrationForm.surname.$error.required">*Prezime je obavezno!</span>
           <span ng-show="registrationForm.surname.$error.minlength">*Prezime je prekratko!</span>
@@ -26,7 +26,7 @@
       </div>
       <div class="form-group">
         <label>Korisnicko ime:</label><br>
-        <input type="text" placeholder="Korisnicko ime" ng-model="user.username" name="username" class="form-control" ng-minlength="4" required />
+        <input type="text" placeholder="Korisnicko ime" ng-model="user.username" name="username" class="username" ng-minlength="4" required />
         <span style="color:#a94442" ng-show="registrationForm.username.$dirty && registrationForm.username.$invalid">
           <span ng-show="registrationForm.username.$error.required">*Korisnicko ime je obavezno!</span>
           <span ng-show="registrationForm.username.$error.minlength">*Korisnicko ime je prekratko!</span>
@@ -34,22 +34,22 @@
       </div> 
       <div class="form-group">
         <label>Korisnicka sifra:</label><br>
-        <input type="password" placeholder="Korisnicka sifra" ng-model="user.password" name="password" class="form-control" ng-minlength="5" required />
+        <input type="password" placeholder="Korisnicka sifra" ng-model="user.password" name="password" class="pass" ng-minlength="5" required />
         <span style="color:#a94442" ng-show="registrationForm.password.$dirty && registrationForm.password.$invalid">
           <span ng-show="registrationForm.password.$error.required">*Korisnicka sifra je obavezna!</span>
           <span ng-show="registrationForm.password.$error.minlength">*Korisnicka sifra je prekratka!</span>
         </span>
       </div>
       <div class="form-group">
-        <label>Ponovljena korisnicka sifra:</label><br>
-        <input type="password" placeholder="Ponovljena korisnicka sifra" ng-model="passwordRepeat" name="passwordRepeat" class="form-control" required />
+        <label>Ponovljena sifra:</label><br>
+        <input type="password" placeholder="Ponovljena sifra" ng-model="passwordRepeat" name="passwordRepeat" class="pass" required />
         <span style="color:#a94442" ng-show="registrationForm.passwordRepeat.$dirty && registrationForm.passwordRepeat.$invalid || user.password!=passwordRepeat">
           <span ng-show="registrationForm.passwordRepeat.$error.required">*Ponovljena korisnicka sifra je obavezna!</span>
           <span ng-show="user.password!=passwordRepeat">*Ponovljena korisnicka sifra mora biti ista kao korisnicka sifra!</span>
       </span>
       </div>
 
-      <input type="submit" value="Login" class="btn btn-default" ng-disabled="registrationForm.name.$dirty && registrationForm.name.$invalid || registrationForm.surname.$dirty && registrationForm.surname.$invalid || user.password!=passwordRepeat || registrationForm.username.$dirty && registrationForm.username.$invalid || registrationForm.password.$dirty && registrationForm.password.$invalid || registrationForm.passwordRepeat.$dirty && registrationForm.passwordRepeat.$invalid || registrationForm.name.$untouched || registrationForm.username.$untouched || registrationForm.surname.$untouched || registrationForm.password.$untouched || registrationForm.passwordRepeat.$untouched
+      <input type="submit" value="Registruj se" style="background-color: #2C3E50" ng-disabled="registrationForm.name.$dirty && registrationForm.name.$invalid || registrationForm.surname.$dirty && registrationForm.surname.$invalid || user.password!=passwordRepeat || registrationForm.username.$dirty && registrationForm.username.$invalid || registrationForm.password.$dirty && registrationForm.password.$invalid || registrationForm.passwordRepeat.$dirty && registrationForm.passwordRepeat.$invalid || registrationForm.name.$untouched || registrationForm.username.$untouched || registrationForm.surname.$untouched || registrationForm.password.$untouched || registrationForm.passwordRepeat.$untouched
 "/>
     </form>
   </div>

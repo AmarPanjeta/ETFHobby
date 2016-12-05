@@ -7,20 +7,46 @@
         <span class="sr-only">Error:</span>
         {{error.data.message}}
       </div>
+      <!--
       <form class="login-form" ng-submit="login()">
         <div class="form-group">
           <label>Korisnicko ime:</label><br>
-          <input type="text" ng-model="userName" class="form-control"/>
+          <input type="text" ng-model="userName" class="form-control email"/>
         </div>
         <div class="form-group"><br>
           <label>Sifra:</label>
-          <input type="password" ng-model="password" class="form-control"/>
+          <input type="password" ng-model="password" class="form-control pass"/>
         </div>
 
         <input type="submit" value="Prijavi se" class="btn btn-default"/>
       </form>
+      -->
+
+<form ng-submit="login()">
+    
+  <label for="">Korisnicko ime:</label>
+  <input type="text" ng-model="userName" name="" id="" placeholder="username" class="username">
+    
+  <label for="">Sifra:</label>
+  <input type="password" ng-model="password" name="" id="" placeholder="password" class="pass">
+    
+  <input type="submit" style="background-color: #2C3E50" value="Prijavi se"/>
+    
+</form>
+
+
+
+
+
     </div>
   </div>
+
+
+
+
+
+
+
 
   <div ng-show="loggedIn()">
     <div class="row">
@@ -49,3 +75,8 @@
   </div>
 
 </div>
+
+
+
+
+
