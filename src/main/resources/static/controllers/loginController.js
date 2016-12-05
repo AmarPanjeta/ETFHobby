@@ -11,9 +11,11 @@ app.controller('loginController', ['AuthService','$scope','$http','$log','$rootS
                 $scope.error = null;
                 AuthService.login($scope.userName,$scope.password).then(function(token) {
                     $rootScope.token = token;
+                    localStorage.setItem("token",token);
                     $rootScope.userName=$scope.userName;
+                    localStorage.setItem("userName",$scope.userName);
                     $http.defaults.headers.common.Authorization = 'Bearer ' + token;
-                    $scope.checkRoles();
+                   // $scope.checkRoles();
                     $location.path('/');
                 },
                 function(error){
@@ -32,6 +34,8 @@ app.controller('loginController', ['AuthService','$scope','$http','$log','$rootS
                 $scope.userName = '';
                 $scope.token = null;
                 $rootScope.token=null;
+                localStorage.removeItem("token");
+                localStorage.removeItem("userName");
                 $http.defaults.headers.common.Authorization = '';
             }
 

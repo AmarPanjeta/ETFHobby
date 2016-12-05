@@ -1,4 +1,4 @@
-app.controller('homeController',function(AuthService,$scope,$location,$rootScope,$http){
+app.controller('profileController',function(AuthService,$scope,$location,$rootScope,$http){
 
 
 

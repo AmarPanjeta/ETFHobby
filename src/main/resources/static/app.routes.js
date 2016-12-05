@@ -2,6 +2,12 @@ app.config(function($routeProvider){
   $routeProvider.when('/',{
     templateUrl:"partials/homePage.html",
     controller:'homeController'
+  }).when('/profile',{
+     templateUrl:"partials/profilePage.html",
+     controller:'profileController',
+     resolve:{
+      factory: checkRouting
+     }
   }).when('/login',{
     templateUrl:"partials/loginPage.html",
     controller:"loginController"
