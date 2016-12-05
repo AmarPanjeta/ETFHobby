@@ -1,12 +1,12 @@
 <div class="container">
-  <h2>Moji hobiji</h2>
-  <div class="hobby-box col-md-6 col-md-offset-6" >
-    <span ng-repeat="hobby in hobbies" class="hobby">
-        {{hobby.name}}
-        <span class="glyphicon glyphicon-remove" ng-click="removeHobby(hobby.id,$index)"></span>
-    </span>
+  <div class="col-md-6 col-md-offset-6 left-border">
+    <h2>Moji hobiji</h2>
+    <div class="hobby-box" >
+      <span ng-repeat="hobby in hobbies" class="hobby">
+          {{hobby.name}}
+          <span class="glyphicon glyphicon-remove" ng-click="removeHobby(hobby.id,$index)"></span>
+      </span>
+    </div>
+    <button class="btn btn-default btn-style right" type="button" name="button" ng-click="addHobby()">Dodaj hobi</button>
   </div>
-
-
-  <button class="btn btn-default" type="button" name="button" ng-click="addHobby()">Dodaj hobi</button>
 </div>
