@@ -23,9 +23,6 @@ app.config(function($routeProvider){
      resolve: {
        factory: checkRouting
                 }
-
-
-
   }).when("/upload",{
     templateUrl:"partials/imageUpload.html",
     controller:"fileCtrl"
