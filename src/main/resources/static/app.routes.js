@@ -26,6 +26,8 @@ app.config(function($routeProvider){
   }).when("/upload",{
     templateUrl:"partials/imageUpload.html",
     controller:"fileCtrl"
+  }).when("/proba",{
+    templateUrl:"partials/homePage1.html"
   }).otherwise("/")
 });
 

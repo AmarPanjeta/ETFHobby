@@ -44,10 +44,7 @@ body{
 
 .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-      width: auto;
-      height: inherit;
-      max-height: 300px;
-      margin: auto;
+  /*ovo sam obrisala*/
     }
 
 #myCarousel{
