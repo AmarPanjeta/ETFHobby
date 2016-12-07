@@ -3,7 +3,7 @@
 
     <div class="row">
       <div class="col-md-6">
-        <h3>Dobro dosli, {{userName}}!!!</h3>
+        <h3>Dobro dosli, {{userName}}!!! NE KONTAM</h3>
      <!--
         <div class="col-md-4">
         <div class="row header">
@@ -30,21 +30,30 @@
       <button class="btn" style="padding: 10px; margin: 10px; margin-left: 28%;" ng-click="upload()">Promijeni profilnu</button>
       </div>
 
-    <div class="col-md-4">
-    <div class="row">
-      <div class="col-sm-4">Korisnicko ime: </div>
-      <div class="col-sm-2"><p ng-model="user.username">{{user.username}}</p></div>
-    </div>
-      <div class="row">
-      <div class="col-sm-2">Prezime:</div>
-      <div class="col-sm-2"><p ng-model="user.surname">{{user.surname}}</p></div>
-    </div>
-      <div class="row">
-      <div class="col-sm-2">Ime:</div>
-      <div class="col-sm-2"><p ng-model="user.name">{{user.name}}</p></div>
-    </div>
-
-</div>
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-sm-4">Korisnicko ime: </div>
+            <div class="col-sm-2"><p ng-model="user.username">{{user.username}}</p></div>
+          </div>
+            <div class="row">
+            <div class="col-sm-2">Prezime:</div>
+            <div class="col-sm-2"><p ng-model="user.surname">{{user.surname}}</p></div>
+          </div>
+            <div class="row">
+            <div class="col-sm-2">Ime:</div>
+            <div class="col-sm-2"><p ng-model="user.name">{{user.name}}</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 left-border">
+        <h2>Moji hobiji</h2>
+        <div class="hobby-box" >
+          <span ng-repeat="hobby in hobbies" class="hobby">
+              {{hobby.name}}
+              <span class="glyphicon glyphicon-remove" ng-click="removeHobby(hobby.id,$index)"></span>
+          </span>
+        </div>
+        <button class="btn btn-default btn-style right" type="button" name="button" ng-click="addHobby()">Dodaj hobi</button>
       </div>
     </div>
   </div>
