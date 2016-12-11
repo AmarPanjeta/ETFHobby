@@ -210,3 +210,6 @@ padding: 0px;
   	object-fit: cover;
 }
 
+[ng-click]{
+	cursor: pointer;
+}

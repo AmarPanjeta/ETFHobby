@@ -1,4 +1,4 @@
-app.controller('profileController',function(AuthService,$scope,$location,$rootScope,$http,$log){
+app.controller('profileController',function(AuthService,$scope,$location,$rootScope,$http,$log,ModalService){
 
 
 
