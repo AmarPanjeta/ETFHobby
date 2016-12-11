@@ -147,7 +147,9 @@ form button[type=submit] {
 }
 
 
-
+.img-responsive{
+	
+}
 
 
 .carousel-inner > .item > img,
@@ -160,7 +162,9 @@ width: 100%;
     }
 
 #myCarousel-copy{
-  height: 100%;
+  height: 80%;
+margin-bottom: 49px;
+padding: 0px;
 }
 
 .navbar{
@@ -170,3 +174,39 @@ width: 100%;
 .row-carosel{
 	padding: 20px;
 }
+
+.span8{
+}
+
+.span-action{
+	margin-left: 22%;
+}
+
+
+.podnaslovi-profila{
+	text-align: center;
+}
+
+
+.roditelj-slike{
+	/*
+	position: relative;
+	border-radius: 50%;
+	width: 100%;
+	overflow: hidden;*/
+	text-align: center;
+}
+
+.roditelj-slike::after{/*
+	content: "";
+	display: block;
+	padding-bottom: 100%;*/
+}
+
+.roditelj-slike img{
+	height: 250px;
+	width: 250px;
+	border-radius: 50%;
+  	object-fit: cover;
+}
+

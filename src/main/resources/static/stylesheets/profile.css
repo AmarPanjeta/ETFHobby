@@ -36,6 +36,7 @@
   background-color:#2C3E50;
   color: #EBE2DF;
   border:none;
+  vertical-align: bottom;
 }
 
 body{
@@ -49,4 +50,10 @@ body{
 
 #myCarousel{
   height: 300px;
+}
+
+@media only screen and (max-width: 768px) {
+    .left-border{
+      border: none;
+    }
 }

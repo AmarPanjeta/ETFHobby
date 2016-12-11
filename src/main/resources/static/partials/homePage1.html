@@ -12,7 +12,7 @@
       </ol>
 
       <!-- Wrapper for slides -->
-      <div class="carousel-inner" >
+      <div class="carousel-inner" role="listbox">
 
         <div class="item active">
           <img src="https://static.pexels.com/photos/25770/pexels-photo.jpg" alt="Chania">
@@ -41,7 +41,17 @@
  
       </div>
 
+    <a class="left carousel-control"  role="button" >
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" role="button" >
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+
     </div>
+
 
   </div>
 
@@ -54,6 +64,14 @@
     $("#myCarousel-copy").carousel({interval: 3000});
     $("#myCarousel-copy").carousel({pause:'hover'});
   });
+
+  $(".left").click(function(){
+    $("#myCarousel-copy").carousel("prev");
+}); 
+
+    $(".right").click(function(){
+    $("#myCarousel-copy").carousel("next");
+});
 
 
 </script>
