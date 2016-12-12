@@ -1,0 +1,331 @@
+<div class="container">
+<div class="row">
+<div class="col-md-10 ">
+<form class="form-horizontal" style="position: relative; width: 100%;">
+<fieldset style="width:inherit;">
+
+<!-- Form Name -->
+<legend>User profile form requirement</legend>
+
+<!-- Text input-->
+
+<!--
+
+<img src="http://websamplenow.com/30/userprofile/images/avatar.jpg" class="img-responsive img-thumbnail " style="float: left;">
+  
+ --> 
+
+
+<div class="form-group">
+
+  <label class="col-md-4 control-label" for="Name (Full name)">Ime: </label>  
+  <div class="col-md-8">
+ <div class="input-group">
+       <div class="input-group-addon">
+        <i class="fa fa-user">
+        </i>
+       </div>
+       <input id="Name (Full name)" name="Name (Full name)" type="text" placeholder="Ime" class="form-control input-md" ng-model="user.name">
+      </div>
+
+    
+  </div>
+
+  
+</div>
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Father">Prezime:</label>  
+  <div class="col-md-8">
+  <div class="input-group">
+       <div class="input-group-addon">
+      <i class="fa fa-male" style="font-size: 20px;"></i>
+        
+       </div>
+      <input id="Father" name="Father" type="text" placeholder="Prezime" class="form-control input-md" ng-model="user.surname">
+
+      </div>
+    
+  </div>
+</div>
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Mother">Korisnicko ime:</label>  
+  <div class="col-md-8">
+  <div class="input-group">
+       <div class="input-group-addon">
+      <i class="fa fa-female" style="font-size: 20px;"></i>
+        
+       </div>
+  <input id="Mother" name="Mother" type="text" placeholder="Korisnicko ime" class="form-control input-md" ng-model="user.username">
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Date Of Birth">Datum rodjenja:</label>  
+
+  <div class="col-md-8"> 
+    
+    <div class="col-md-3"> 
+        <div class="ui-select">
+              <select id="user_status" class="form-control">
+              <option value="Mjesec"  selected="selected">Mjesec</option>
+                <option value="Jan">Jan</option>
+                <option value="Feb">Feb</option>
+                <option value="Mart">Mart</option>
+                <option value="April">April</option>
+                <option value="Maj">Maj</option>
+                <option value="Juni">Juni</option>
+                <option value="Juli">Juli<option>
+                <option value="Aug">Aug<option>
+                <option value="Sept">Sept<option>
+                <option value="Okt">Okt<option>
+                <option value="Nov">Nov<option>
+                <option value="Dec">Dec<option>
+              </select>
+         </div>
+    </div>
+
+    <div class="col-md-2"> 
+        <div class="ui-select">
+              <select id="user_status" class="form-control">
+              <option value="Dan"  selected="selected">Dan</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+              </select>
+         </div>
+    </div>
+ 
+
+     <div class="col-md-3"> 
+        <div class="ui-select">
+              <select id="user_status" class="form-control">
+              <option value="godina"  selected="selected">Godina</option>
+           
+              </select>
+         </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+<!-- Multiple Radios (inline) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Gender">Spol</label>
+  <div class="col-md-8"> 
+    <label class="radio-inline" for="Gender-0">
+      <input type="radio" name="Gender" id="Gender-0" value="1" checked="checked">
+      Muski
+    </label> 
+    <label class="radio-inline" for="Gender-1">
+      <input type="radio" name="Gender" id="Gender-1" value="2">
+      Zenski
+    </label> 
+    <label class="radio-inline" for="Gender-2">
+      <input type="radio" name="Gender" id="Gender-2" value="3">
+      Drugo
+    </label>
+  </div>
+</div>
+
+<!-- Multiple Radios (inline) -->
+<div class="form-group">
+  <label class="col-md-4 control-label" >Status veze:</label>
+  <div class="col-md-8"> 
+    
+        <div class="ui-select">
+              <select id="user_status" class="form-control">
+              <option value="Nista"  selected="selected">----- ------</option>
+                <option value="Single">Slobodna/Slobodan</option>
+                <option value="In a relationship">U vezi</option>
+                <option value="Engaged">Zarucena/Zarucen</option>
+                <option value="Married">Udata/Ozenjen</option>
+                <option value="Divorced">Razvedena/Razveden</option>
+                <option value="Widowed">Udovica/Udovac</option>
+                <option value="Complicated">Komplikovan</option>
+              </select>
+         </div>
+ 
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Interested">Zainteresovan za:</label>
+  <div class="col-md-8"> 
+    <label class="radio-inline" for="Interested-0">
+      <input type="radio" name="Interested" id="Interested-0" value="1" checked="checked">
+      Zene
+    </label> 
+    <label class="radio-inline" for="Interested-1">
+      <input type="radio" name="Interested" id="Interested-1" value="2">
+      Muskarci
+    </label> 
+    <label class="radio-inline" for="Interested-2">
+      <input type="radio" name="Interested" id="Interested-2" value="3">
+      Oboje
+    </label>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label col-xs-12">Drzava:</label> 
+  <div class="col-md-8">  
+      <div class="ui-select">
+              <select id="user_country" class="form-control">
+              <option value="Nista"  selected="selected">----- ------</option>           
+              </select>
+       </div>
+  </div>
+  
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label col-xs-12">Grad:</label> 
+    <div class="col-md-8">  
+      <div class="ui-select">
+              <select id="user_city" class="form-control">
+              <option value="Nista"  selected="selected">----- ------</option>           
+              </select>
+       </div>
+      </div>
+  
+</div>
+
+
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Email Address">Email Address</label>  
+  <div class="col-md-8">
+  <div class="input-group">
+       <div class="input-group-addon">
+     <i class="fa fa-envelope-o"></i>
+        
+       </div>
+    <input id="Email Address" name="Email Address" type="text" placeholder="Email Address" class="form-control input-md">
+    
+      </div>
+  
+  </div>
+</div>
+
+
+
+<!-- Multiple Checkboxes -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Languages Known">Jezici:</label>
+  <div class="col-md-8">
+  <div class="checkbox">
+    <label for="Languages Known-0">
+      <input type="checkbox" name="Languages Known" id="Languages Known-0" value="1">
+      Bosanski
+    </label>
+    </div>
+  <div class="checkbox">
+    <label for="Languages Known-1">
+      <input type="checkbox" name="Languages Known" id="Languages Known-1" value="2">
+      Engleski
+    </label>
+    </div>
+  <div class="checkbox">
+    <label for="Languages Known-2">
+      <input type="checkbox" name="Languages Known" id="Languages Known-2" value="3">
+      Njemacki
+    </label>
+    </div>
+  <div class="checkbox">
+    <label for="Languages Known-3">
+      <input type="checkbox" name="Languages Known" id="Languages Known-3" value="4">
+      Italijanski
+    </label>
+    </div>
+<br>
+<div class="othertop">
+    <label for="Languages Known-4">
+    
+     
+  
+    </label>
+
+     <input type="input" name="LanguagesKnown" id="Languages Known-4"  placeholder="Ostali jezici">
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+<!-- Textarea -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="Overview (max 200 words)">Opis/napomena (max 200 rijeci)</label>
+  <div class="col-md-8">                     
+    <textarea class="form-control" rows="10"  id="Overview (max 200 words)" name="Overview (max 200 words)">Opis</textarea>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" ></label>  
+  <div class="col-md-8">
+
+
+<button class="btn btn-success" type="button" name="button" ng-click="sacuvaj()"><span class="glyphicon glyphicon-thumbs-up"></span> Sacuvaj</button>
+<button class="btn btn-danger" type="button" name="button" ng-click="odustani()"><span class="glyphicon glyphicon-remove-sign"></span> Odstani</button>
+
+  </div>
+</div>
+
+</fieldset>
+
+</form>
+
+</div>
+
+
+</div>
+   </div>
+

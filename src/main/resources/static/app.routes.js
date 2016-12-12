@@ -28,6 +28,12 @@ app.config(function($routeProvider){
     controller:"fileCtrl"
   }).when("/proba",{
     templateUrl:"partials/homePage1.html"
+  }).when("/profile/edit",{
+    templateUrl:"partials/editProfileInfo.html",
+    controller: "profileController",
+    resolve:{
+      factory: checkRouting
+    }
   }).otherwise("/")
 });
 
