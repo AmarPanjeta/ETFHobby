@@ -3,7 +3,15 @@ app.controller('editProfileController',function(AuthService,$scope,$location,$ro
 
 $scope.user={};
 $scope.profileurl="";
-
+$scope.drzave={};
+$scope.nativeNames=[];
+$http.get("https://restcountries.eu/rest/v1/all").then(function(response){
+	$scope.drzave=response.data;
+	
+	for (i in $scope.drzave){
+		$scope.nativeNames.push($scope.drzave[i]["nativeName"]);
+	}
+})
 
   if($rootScope.token!==null){
     $scope.userName=$rootScope.userName;
@@ -12,11 +20,12 @@ $scope.profileurl="";
       $scope.profileurl="";
       $scope.profileurl="http://localhost:8080/download?name="+$scope.userName+"&rand="+Math.random();
       $scope.mjeseci=['Mjesec','Jan','Feb','Mart','April','Maj','Juni','Juli','Aug','Sept','Okt','Nov','Dec'];
-      $scope.dani=[01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
+      $scope.dani=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
       $scope.godine=[];
       $scope.status=['Slobodna/Slobodan','U vezi','Zarucena/Zarucen','U braku','Razvedena/Razveden','Udovica/Udovac','Komplikovan'];
       $scope.spol=['Zenski','Muski','Drugo'];
       $scope.zainteresovanost=['Zene','Muskarci','Oboje'];
+
       for(i=1905;i<2017;i++){
       	$scope.godine.push(i);
       }

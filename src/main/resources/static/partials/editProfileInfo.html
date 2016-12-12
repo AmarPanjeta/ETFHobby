@@ -163,8 +163,8 @@
   <label class="col-md-4 control-label col-xs-12">Drzava:</label> 
   <div class="col-md-8">  
       <div class="ui-select">
-              <select id="user_country" class="form-control">
-              <option value="Nista"  selected="selected">----- ------</option>           
+              <select id="user_country" class="form-control" ng-model="user.country" ng-options="x for x in nativeNames">
+                       
               </select>
        </div>
   </div>
@@ -188,7 +188,7 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="Email Address">Email Address</label>  
+  <label class="col-md-4 control-label" for="Email Address">Email adresa:</label>  
   <div class="col-md-8">
   <div class="input-group">
        <div class="input-group-addon">
