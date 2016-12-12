@@ -30,7 +30,7 @@ app.config(function($routeProvider){
     templateUrl:"partials/homePage1.html"
   }).when("/profile/edit",{
     templateUrl:"partials/editProfileInfo.html",
-    controller: "profileController",
+    controller: "editProfileController",
     resolve:{
       factory: checkRouting
     }

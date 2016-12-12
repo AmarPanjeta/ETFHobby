@@ -59,16 +59,9 @@ app.controller('profileController',function(AuthService,$scope,$location,$rootSc
   $scope.changeInformation=function(){
     $location.path("/profile/edit");
   }
-  $scope.odustani=function(){
-    $location.path("/profile");
-  }
 
 
-  $scope.sacuvaj=function(){
-$http.put("http://localhost:8080/users/"+$scope.user.id,$scope.user).then(function(response){
-  $location.path("/profile");
-})
-  }
+
 
   var modalOptions = {
            closeButtonText: 'Odustani',

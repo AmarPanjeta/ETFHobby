@@ -45,15 +45,14 @@
             <h2 class="podnaslovi-profila">Moje informacije</h2>
         
             <span ng-model="user.name">Ime i prezime: {{user.name}}</span><span ng-model="user.surname" style="display: inline-block;"> {{ user.surname}}</span>
-            <h6 style="clear: both;">Datum rodjenja: 18.06.1994.</h6>
-            <h6>Spol: Musko</h6>
-            <h6 >Email: FALIMAIL@servidor.com</h6>
-            <h6>Drzava: Bosna i Hercegovina</h6>
-            <h6>Grad: Sarajevo</h6>
-            <h6>Godina: 22 godine</h6>
-            <h6>Zainteresovan za: Zene</h6>
-            <h6>Edukacija: ETF</h6>
-        
+            <h6 style="clear: both;">Datum rodjenja: {{user.day}}. {{user.month}} {{user.year}}.</h6>
+            <h6  ng-model="user.gender">Spol: {{user.gender}}</h6>
+            <h6  ng-model="user.email">Email: {{user.email}}</h6>
+            <h6  ng-model="user.country">Drzava: {{user.country}}</h6>
+            <h6  ng-model="user.city">Grad: {{user.city}}</h6>
+            <h6  ng-model="user.relationshipStatus">Status veze: {{user.relationshipStatus}}</h6>
+            <h6  ng-model="user.interestedIn">Zainteresovan za: {{user.interestedIn}}</h6>
+            <h6  ng-model="user.description">Opis: {{user.description}}</h6>        
         
             <button class="btn btn-default btn-style right" type="button" name="button" ng-click="changeInformation()" >Izmijeni informacije</button>         
         </div>
