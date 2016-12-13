@@ -5,7 +5,7 @@
 <fieldset style="width:inherit;">
 
 <!-- Form Name -->
-<legend>User profile form requirement</legend>
+<legend>Informacije o korisniku</legend>
 
 <!-- Text input-->
 
@@ -163,7 +163,7 @@
   <label class="col-md-4 control-label col-xs-12">Drzava:</label> 
   <div class="col-md-8">  
       <div class="ui-select">
-              <select id="user_country" class="form-control" ng-model="user.country" ng-options="x for x in nativeNames">
+              <select id="user_country" class="form-control" ng-model="user.country" ng-options="x for x in names" ng-change="vratiGradove()">
                        
               </select>
        </div>
@@ -176,8 +176,8 @@
   <label class="col-md-4 control-label col-xs-12">Grad:</label> 
     <div class="col-md-8">  
       <div class="ui-select">
-              <select id="user_city" class="form-control">
-              <option value="Nista"  selected="selected">----- ------</option>           
+              <select id="user_city" class="form-control" ng-model="user.city" ng-options="x for x in gradovi">
+                         
               </select>
        </div>
       </div>

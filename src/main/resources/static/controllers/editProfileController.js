@@ -2,16 +2,34 @@ app.controller('editProfileController',function(AuthService,$scope,$location,$ro
 
 
 $scope.user={};
+$scope.user.country=[];
+
 $scope.profileurl="";
 $scope.drzave={};
 $scope.nativeNames=[];
+$scope.names=[];
+$scope.drzavegradovi=[];
+$scope.gradovi=[];
+
+$log.log($scope.user.country);
+$log.log($scope.user.city);
 $http.get("https://restcountries.eu/rest/v1/all").then(function(response){
 	$scope.drzave=response.data;
 	
 	for (i in $scope.drzave){
 		$scope.nativeNames.push($scope.drzave[i]["nativeName"]);
+		$scope.names.push($scope.drzave[i]["name"]);
 	}
 })
+
+$scope.vratiGradove=function(){
+
+$http.get("https://raw.githubusercontent.com/David-Haim/CountriesToCitiesJSON/master/countriesToCities.json").then(function(response){
+	$scope.drzavegradovi=response.data;
+	$scope.gradovi=$scope.drzavegradovi[$scope.user.country];
+	
+})
+}
 
   if($rootScope.token!==null){
     $scope.userName=$rootScope.userName;
@@ -43,6 +61,9 @@ $http.put("http://localhost:8080/users/"+$scope.user.id,$scope.user).then(functi
 
 
     $scope.odustani=function(){
+    $scope.vratiGradove();
     $location.path("/profile");
   }
+
+  $scope.vratiGradove();
 })
