@@ -12,5 +12,8 @@ public interface HobbyRepository extends CrudRepository<Hobby, Long>{
 	
 	@Query("select h from Hobby h, RegisteredUser u, UserHobby uh where u.id=:id and uh.user=u and uh.hobby=h")
 	public List<Hobby> gethobbiesbyuser(@Param("id")long id);
+	
+	@Query("select h from Hobby h WHERE h.id NOT IN (select h.id from Hobby h,RegisteredUser u,UserHobby uh where u.id=:id and uh.user=u and uh.hobby=h)")
+	public List<Hobby> gethobbiescomplement(@Param("id")long id);
 
 }
