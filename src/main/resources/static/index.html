@@ -50,18 +50,21 @@
 
 
       </ul>
-      <!--
+      
       <form class="navbar-form navbar-left">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="Pronadji prijatelje">
         </div>
+        <!--
         <button type="submit" class="btn btn-default">Submit</button>
+        -->
       </form>
-      -->
+    
       <ul class="nav navbar-nav navbar-right menu-list">
         <li ng-show="!logged()" ng-class="{active:nav.tab('loginController')}"><a href="#/login"><span class="glyphicon glyphicon-user"></span>Login</a></li>
         <li ng-show="!logged()" ng-class="{active:nav.tab('registrationController')}"><a href="#/registration"><span class="glyphicon glyphicon-log-in"></span> Registracija</a></li>
         <li ng-show="logged()"  ng-class="{active:nav.tab('homeController')}"><a href="#/hobbies" ng-click=""><span class="glyphicon glyphicon-link"></span>Hobiji</a></li>
+        <li ng-show="logged()"  ng-class="{active:nav.tab('relationController')}"><a href="#/relations" ng-click=""><span class="glyphicons glyphicons-parents"></span>Prijatelji</a></li>
         <li ng-show="logged()" ng-class="{active:nav.tab('profileController')}"><a href="#/profile" ng-click="profile()"><span class="glyphicon glyphicon-user"></span>Profil</a></li>
         <li ng-show="logged()"><a href="" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 
@@ -117,6 +120,7 @@
     <script src="controllers/editProfileController.js" charset="utf-8"></script>
     <script src="controllers/hobbiesController.js"></script>
     <script src="controllers/addHobbyController.js"></script>
+    <script src="controllers/relationController.js"></script>
     <script src="app.routes.js" charset="utf-8"></script>
 
     <script src="bower_components/dropzone/dist/dropzone.js"></script>

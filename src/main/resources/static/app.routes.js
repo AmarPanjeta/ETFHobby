@@ -34,6 +34,12 @@ app.config(function($routeProvider){
     resolve:{
       factory: checkRouting
     }
+  }).when("/relations",{
+    templateUrl: "partials/friendsPage.html",
+    controller: "relationController",
+     resolve: {
+       factory: checkRouting
+                }
   }).otherwise("/")
 });
 

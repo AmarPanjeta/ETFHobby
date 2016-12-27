@@ -1,0 +1,42 @@
+<div class="container">
+  <div >
+
+    <div class="row" style="display:flex;flex-wrap: wrap;">
+      
+      
+
+
+        <div class="col-md-6">
+          <div class="span2">
+            <h2 class="podnaslovi-profila">Moji prijatelji</h2>
+        
+            <div class="hobby-box" >
+                <span ng-repeat="friend in friends" class="hobby">
+                    {{friend.username}}
+                    <span class="glyphicon glyphicon-remove" ng-click="removeFriend(friend.id,$index)"></span>
+                </span>
+              </div>
+
+        </div>
+        
+   
+      
+       </div>
+
+
+      
+
+      <div class="col-md-6 left-border">
+        <div class="span2">
+          <h2 class="podnaslovi-profila">Slicni ne-prijatelji:</h2>
+            
+          
+          
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
