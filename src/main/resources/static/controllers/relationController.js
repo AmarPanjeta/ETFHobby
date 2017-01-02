@@ -1,7 +1,9 @@
 app.controller('relationController',function(AuthService,$scope,$location,$rootScope,$http,$log,ModalService){
 	$scope.user={};
 	$scope.friends=[];
+	$scope.profileurls=[];
 
+    
 
 
 	  if($rootScope.token!==null){
@@ -13,6 +15,14 @@ app.controller('relationController',function(AuthService,$scope,$location,$rootS
 
 	       $http.get("http://localhost:8080/relations/search/getfriendsbyuserid?id="+$scope.user.id).then(function(response){
 	       	$scope.friends=response.data._embedded.users;
+
+
+            for (i=0;i<$scope.friends.length;i++){
+            	 $log.log($scope.friends[i].username);
+			     profileurl="http://localhost:8080/download?name="+$scope.friends[i].username;
+			     $log.log($scope.profileurl);
+			     $scope.profileurls.push(profileurl);
+                 }
 	       	$log.log($scope.friends);
 	       })
     })
@@ -29,6 +39,14 @@ app.controller('relationController',function(AuthService,$scope,$location,$rootS
         }
   	})
   	})
+  }
+
+
+  $scope.showFriend=function(id){
+     $rootScope.friendToShowId=id;
+     $log.log("dosli");
+     $log.log($rootScope.friendToShowId);
+  	 $location.path("/friend");
   }
 
 

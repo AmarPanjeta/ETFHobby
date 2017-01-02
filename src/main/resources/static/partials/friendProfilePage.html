@@ -1,0 +1,64 @@
+<div class="container">
+  
+
+    <div class="row" style="display:flex;flex-wrap: wrap;">
+
+
+
+        
+       <div class="col-md-4 col-xs-12" style="text-align: center;">
+         <div class="span2">
+         <h2 class="podnaslovi-profila">Slika profila</h2>
+            
+            <div class="roditelj-slike">
+              <img ng-src="{{friendToShowImage}}" class="" alt="profilna" />
+            </div>
+
+          
+          </div>
+        </div>
+
+
+        <div class="col-md-4 left-border">
+          <div class="span2">
+            <h2 class="podnaslovi-profila">Informacije</h2>
+        
+            <span ng-model="friendToShow.name">Ime i prezime: {{friendToShow.name}} </span><span ng-model="user.surname" style="display: inline-block;"> {{ friendToShow.surname}}</span>
+            <h6 style="clear: both;">Datum rodjenja: {{friendToShow.day}}. {{friendToShow.month}} {{friendToShow.year}}.</h6>
+            <h6  ng-model="friendToShow.gender">Spol: {{friendToShow.gender}}</h6>
+            <h6  ng-model="friendToShow.email">Email: {{friendToShow.email}}</h6>
+            <h6  ng-model="friendToShow.country">Drzava: {{friendToShow.country}}</h6>
+            <h6  ng-model="friendToShow.city">Grad: {{friendToShow.city}}</h6>
+            <h6  ng-model="friendToShow.relationshipStatus">Status veze: {{friendToShow.relationshipStatus}}</h6>
+            <h6  ng-model="friendToShow.interestedIn">Zainteresovan za: {{friendToShow.interestedIn}}</h6>
+            <h6  ng-model="friendToShow.description">Opis: {{friendToShow.description}}</h6>        
+        
+               
+        </div>
+        
+   
+      
+       </div>
+
+
+      
+
+      <div class="col-md-4 left-border">
+        <div class="span2">
+          <h2 class="podnaslovi-profila">Hobiji</h2>
+              <div class="hobby-box" >
+                <span ng-repeat="hobby in friendshobbies" class="hobby">
+                    {{hobby.name}}
+                    
+                </span>
+              </div>
+     
+        
+        </div>
+
+      </div>
+
+    </div>
+  
+
+</div>

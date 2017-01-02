@@ -1,3 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
+@import url(http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+
+
 .login-form{
   background-color: #f6f6f6;
   padding:15px;
@@ -289,4 +293,17 @@ padding: 0px;
 .box{
   border: 1px solid aliceblue;
   box-shadow: 0 0 16px #fff;
+}
+
+
+
+
+.friend-box{
+   border: 1px solid aliceblue;
+  box-shadow: 0 0 16px #fff;
+  margin:10px;
+}
+
+.well{
+  background-color: #18BC9C;
 }

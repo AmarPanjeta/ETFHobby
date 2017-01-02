@@ -1,42 +1,53 @@
-<div class="container">
-  <div >
+<div class="container-fluid">
 
-    <div class="row" style="display:flex;flex-wrap: wrap;">
-      
-      
-
-
-        <div class="col-md-6">
-          <div class="span2">
-            <h2 class="podnaslovi-profila">Moji prijatelji</h2>
-        
-            <div class="hobby-box" >
-                <span ng-repeat="friend in friends" class="hobby">
-                    {{friend.username}}
-                    <span class="glyphicon glyphicon-remove" ng-click="removeFriend(friend.id,$index)"></span>
-                </span>
-              </div>
-
-        </div>
-        
-   
-      
-       </div>
-
-
-      
-
-      <div class="col-md-6 left-border">
-        <div class="span2">
-          <h2 class="podnaslovi-profila">Slicni ne-prijatelji:</h2>
+  <div class="row">
+    
             
-          
-          
-        </div>
+                <div class=" friend-box col-md-6"  ng-repeat="friend in friends">
 
-      </div>
+                  <div class="col-sm-2 col-md-6">
+                    <img ng-src="{{profileurls[friends.indexOf(friend)]}}" alt="profilna"  class="img-circle img-responsive" style="margin-top: 8px;margin-bottom: 8px;" />
+                    
+                  </div>
 
-    </div>
+                  <div class="col-sm-2 col-md-6">
+                    <h4><i class="glyphicon glyphicon-user"></i> <strong>{{friend.username}}</strong></h4>
+                    <small>
+                      <cite title="City, ST">
+                        <i class="glyphicon glyphicon-map-marker"></i> {{friend.city}}, {{friend.country}}
+                      </cite>
+                    </small>
+                    <p>
+                    <i class="glyphicon glyphicon-envelope"></i> {{friend.email}}<br />
+                            <i class="glyphicon glyphicon-gift"></i>{{friend.month}} {{friend.day}},{{friend.year}}</p>
+                        <!-- Split button -->
+                        <div class="btn-group" style="margin-bottom: 5px;">
+                            <button class="btn btn-default btn-style right" ng-click="showFriend(friend.id)" >Prikazi profil</button>
+
+                             <button class="btn btn-default btn-style right" style="margin-left: 2px;" ng-click="removeFriend(friend.id,$index)" >Obrisi</button>
+                        </div>
+
+                    
+                    </div>
+                </div>
+
+
+            
+    
   </div>
-
 </div>
+      
+
+   
+
+   
+
+
+
+<script >
+  $(".hover").mouseleave(
+  function () {
+    $(this).removeClass("hover");
+  }
+);
+</script>
