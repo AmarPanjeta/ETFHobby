@@ -26,7 +26,8 @@ app.controller('relationController',function(AuthService,$scope,$location,$rootS
 	       	$log.log($scope.friends);
 	       })
     })
-
+	    $log.log("filteer");
+    $log.log($rootScope.test);
   }
 
 

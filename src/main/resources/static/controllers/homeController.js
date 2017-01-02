@@ -21,9 +21,12 @@ app.controller('homeController',function(AuthService,$scope,$location,$rootScope
       $scope.user=response.data;
       $scope.profileurl="";
       $scope.profileurl="http://localhost:8080/download?name="+$scope.userName+"&rand="+Math.random();
+
     })
 
   }
+
+
 
   $scope.upload=function(){
      $location.path("/upload");
