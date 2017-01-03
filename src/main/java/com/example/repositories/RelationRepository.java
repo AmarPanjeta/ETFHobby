@@ -31,9 +31,9 @@ public interface RelationRepository extends CrudRepository<Relation, Long>{
 	@Query("select u from RegisteredUser u WHERE u.id NOT IN (Select u2.id from Relation r,RegisteredUser u1,RegisteredUser u2 where u1.id=:id and ((r.user1=u1 and r.user2=u2) or(r.user2=u1 and r.user1=u2)) and r.type='friends') and u.id<>:id")
 	public List<RegisteredUser> getfriendscomplement(@Param("id")long id);
 	
-	@Query("select u from RegisteredUser u WHERE u.id IN (Select u2.id from Relation r,RegisteredUser u1,RegisteredUser u2 where u1.id=:id and ((r.user1=u1 and r.user2=u2) or(r.user2=u1 and r.user1=u2)) and r.type='Poslan zahtjev')")
+	@Query("select u from RegisteredUser u WHERE u.id IN (Select u1.id from Relation r,RegisteredUser u1,RegisteredUser u2 where u2.id=:id and (r.user1=u1 and r.user2=u2)  and r.type='Poslan zahtjev')")
 	public List<RegisteredUser> getfriendrequests(@Param("id")long id);
 	
-	@Query("select r.id from Relation r where ((r.user1.id=:user1 and r.user2.id=:user2) or (r.user2.id=:user1 and r.user1.id=:user2))")	
+	@Query("select r.id from Relation r where ((r.user1.id=:user2 and r.user2.id=:user1))")	
 	public Long getrelationidbyusers(@Param("user1") Long user1,@Param("user2") Long user2);
 }
