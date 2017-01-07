@@ -17,4 +17,5 @@ public interface UserHobbyRepository extends CrudRepository<UserHobby, Long>{
 	@Transactional
 	@Query("delete from UserHobby uh where uh.user.id=:user and uh.hobby.id=:hobby")
 	public int deleteuserhobby(@Param("user") Long user,@Param("hobby") Long hobby);
+	
 }
