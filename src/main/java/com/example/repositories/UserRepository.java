@@ -18,6 +18,9 @@ public interface UserRepository extends CrudRepository<RegisteredUser, Long> {
 	
 	RegisteredUser findByUsername(@Param("username") String username);
 	
+	@Query("select u from RegisteredUser u where u.id=:id")
+	RegisteredUser getUserById(@Param("id") Long id);
+	
 	@Query("select u.id from RegisteredUser u where u.username=:username")
 	long getIdbyUsername(@Param("username") String username);
 	

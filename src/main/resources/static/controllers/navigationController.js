@@ -6,6 +6,7 @@ app.controller('navigationController',function($rootScope,$location,$scope,$http
   $rootScope.roleUser = false;
   $rootScope.roleAdmin = false;
   $rootScope.roleFoo = false;
+  $rootScope.test="";
 
   if(localStorage.hasOwnProperty("token")){
     $rootScope.token=localStorage.getItem("token");
@@ -31,6 +32,10 @@ app.controller('navigationController',function($rootScope,$location,$scope,$http
     $http.defaults.headers.common.Authorization = '';
     $location.path("/");
   };
+
+  $scope.filter=function(){
+  $rootScope.test=$scope.test;
+}
 
   $scope.profile=function(){
     $location.path("/");

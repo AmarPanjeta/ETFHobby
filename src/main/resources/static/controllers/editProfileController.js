@@ -11,6 +11,7 @@ $scope.names=[];
 $scope.drzavegradovi=[];
 $scope.gradovi=[];
 
+
 $log.log($scope.user.country);
 $log.log($scope.user.city);
 $http.get("https://restcountries.eu/rest/v1/all").then(function(response){
@@ -22,14 +23,18 @@ $http.get("https://restcountries.eu/rest/v1/all").then(function(response){
 	}
 })
 
-$scope.vratiGradove=function(){
-
 $http.get("https://raw.githubusercontent.com/David-Haim/CountriesToCitiesJSON/master/countriesToCities.json").then(function(response){
 	$scope.drzavegradovi=response.data;
-	$scope.gradovi=$scope.drzavegradovi[$scope.user.country];
 	
+	$log.log($scope.gradovi);
 })
+
+$scope.vratiGradove=function(){
+	$scope.gradovi=$scope.drzavegradovi[$scope.user.country];
 }
+
+
+
 
   if($rootScope.token!==null){
     $scope.userName=$rootScope.userName;

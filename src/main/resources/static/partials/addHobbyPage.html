@@ -1,11 +1,50 @@
-<div class="container">
-  ovdje dodajemo hobi!
-  <form class="login-form" ng-submit="add()">
-    <div class="form-group">
-      <label>Hobi:</label><br>
-      <select ng-model="selectedHobby" ng-options="hobby.name for hobby in hobbies">
-      </select>
-    </div>
-    <span><input type="submit" value="Dodaj" class="btn btn-default"/>
-  </form>
+<div class="container" style="margin-top:10px;">
+
+	<div class="row">
+	    <div class="col-md-5 container-element box">
+		<h2>Potencijalni hobiji</h2>
+		  <ul dnd-list="diff"
+		      dnd-drop="dropCallbackOne(event, index, item, external, type,'itemType')" 
+		  >
+
+		    <li ng-repeat="item in diff "
+		        dnd-draggable="item"
+		        dnd-moved="diff.splice($index, 1)"
+		        dnd-effect-allowed="move"
+		        dnd-selected="models.selected = item"
+		        ng-class="{'selected': models.selected === item}"
+		        >
+		        {{item.name}}
+		    </li>
+		</ul>
+		</div>
+
+		<div class="col-md-2"></div>
+
+		<div class="col-md-5 container-element box">
+		<h2>Moji hobiji</h2>
+		  <ul dnd-list="myhobbies"
+		  	  dnd-drop="dropCallback(event, index, item, external, type,'itemType')" 
+		  	 >
+
+		    <li ng-repeat="item in myhobbies"
+		        dnd-draggable="item"
+		        dnd-moved="myhobbies.splice($index, 1)"
+		        dnd-effect-allowed="move"
+		        dnd-selected="models.selected = item"
+		        ng-class="{'selected': models.selected === item}"
+		        >
+		        {{item.name}}
+		    </li>
+		</ul>
+        <!--
+		<button class="btn btn-default" type="button" name="button" ng-click="izmjenaListeHobija()">Sacuvaj izmjene</button>
+		-->
+	    </div>
+
+		
+	</div>
 </div>
+
+
+

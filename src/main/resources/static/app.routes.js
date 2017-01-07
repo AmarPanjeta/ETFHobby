@@ -34,6 +34,30 @@ app.config(function($routeProvider){
     resolve:{
       factory: checkRouting
     }
+  }).when("/relations",{
+    templateUrl: "partials/friendsPage.html",
+    controller: "relationController",
+     resolve: {
+       factory: checkRouting
+                }
+  }).when("/friend",{
+    templateUrl:"partials/friendProfilePage.html",
+    controller: "showFriendController",
+    resolve:{
+      factory: checkRouting
+    }
+  }).when("/unfriend",{
+    templateUrl:"partials/unfriendsPage.html",
+    controller:"addFriendController",
+    resolve:{
+      factory: checkRouting
+    }
+  }).when("/request",{
+    templateUrl:"partials/requestsPage.html",
+    controller: "requestController",
+    resolve:{
+      factory: checkRouting
+    }
   }).otherwise("/")
 });
 

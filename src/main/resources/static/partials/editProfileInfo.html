@@ -175,12 +175,21 @@
 <div class="form-group">
   <label class="col-md-4 control-label col-xs-12">Grad:</label> 
     <div class="col-md-8">  
-      <div class="ui-select">
-              <select id="user_city" class="form-control" ng-model="user.city" ng-options="x for x in gradovi">
-                         
-              </select>
-       </div>
+    <input  list="gradovi-lista" ng-model="user.city" value="user.city" ng-change="vratiGradove()" >
+     <datalist id="gradovi-lista" >
+    
+     
+              <option value="{{x}}" ng-repeat="x in gradovi" ng-init="$log.log('log')">
+              {{x}}
+              </option>
+            
+     
+
+       </datalist>
+       
       </div>
+
+
   
 </div>
 
