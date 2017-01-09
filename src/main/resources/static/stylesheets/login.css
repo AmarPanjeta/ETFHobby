@@ -56,13 +56,39 @@
 }
 
 .navbar-default{
-	border-color: #70293F;
+	
+  border:none;
 }
 body{
-	background-color: #18BC9C;
-	color:#6E1346;
+	background: -moz-linear-gradient(#2c3e50, silver);
+	color:white;
+  font-family:  "Roboto Slab", "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+  padding-bottom: 70px;
+
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,span,p,cite,small,legend,label,select,input,datalist,li,.navbar-default .navbar-nav > li > a {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  
+  font-weight: 700;
+}
+
+h1{
+  font-size:35px;
+}
+
+legend{
+  color:white;
+}
+
+h2,h3,h4,h5,h6,span{
+  font-size:15px;
+}
 #tf{
 	border: 1px solid white;
 	border-radius: 4px;
@@ -78,7 +104,9 @@ body{
 
 
 
-#bg {
+
+.pozadina{
+
   position: fixed;
   left: 0;
   top: 0;
@@ -87,6 +115,7 @@ body{
   background: url(http://lorempixel.com/800/500/nature) no-repeat center center fixed;
   background-size: cover;
   -webkit-filter: blur(5px);    
+
 }
 
 form {
@@ -198,6 +227,7 @@ padding: 0px;
 
 .podnaslovi-profila{
 	text-align: center;
+  font-size:35px;
 }
 
 
@@ -301,7 +331,7 @@ padding: 0px;
 .friend-box{
   
   border: 1px solid aliceblue;
-  box-shadow: 0 0 16px #fff;
+  /*box-shadow: 0 0 16px #fff;*/
   box-sizing: border-box;
 }
 
@@ -323,4 +353,10 @@ padding: 0px;
 .pager>li>a:hover{
   background-color: #e6e6e6;
   color: black;
+}
+
+.btn{
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  
+font-weight: 700;
 }

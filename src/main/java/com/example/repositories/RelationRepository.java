@@ -45,4 +45,7 @@ public interface RelationRepository extends PagingAndSortingRepository<Relation,
 	
 	@Query("select r.id from Relation r where ((r.user1.id=:user2 and r.user2.id=:user1))")	
 	public Long getrelationidbyusers(@Param("user1") Long user1,@Param("user2") Long user2);
+	
+	@Query("select count(r) from Relation r where ((r.user1.id=:user2 and r.user2.id=:user1) or (r.user1.id=:user1 and r.user2.id=:user2) )")
+	public int relationexist(@Param("user1") Long user1,@Param("user2") Long user2);
 }

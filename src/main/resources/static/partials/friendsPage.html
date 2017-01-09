@@ -9,7 +9,7 @@
                 <div class=" friend-box col-md-6"  ng-repeat="friend in friends | filter : test" >
                   <div class="col-md-6">
                    
-                    <img ng-src="{{profileurls[friends.indexOf(friend)]}}" alt="profilna"  class="img-circle img-responsive" style="margin-top: 8px;margin-bottom: 8px;" />
+                    <img ng-src="http://localhost:8080/download?name={{friend.username}}" alt="profilna"  class="img-circle img-responsive" style="margin-top: 8px;margin-bottom: 8px;" />
                     
                 
                   </div>

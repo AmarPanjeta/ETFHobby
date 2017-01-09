@@ -45,6 +45,12 @@ $scope.sendFriendRequest=function(id){
 
 }
 
+$scope.nemaZahtjeva=function(id){
+	id1=$scope.user.id;
+	$http.get("http://localhost:8080/relations/search/relationexist?user1="+id1+"&user2="+id).then(function(response){
+		return response.data==0;
+	})
+}
 
 
 
