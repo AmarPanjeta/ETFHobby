@@ -16,6 +16,9 @@ app.controller('loginController', ['AuthService','$scope','$http','$log','$rootS
                     localStorage.setItem("userName",$scope.userName);
                     $http.defaults.headers.common.Authorization = 'Bearer ' + token;
                    // $scope.checkRoles();
+
+
+               
                     $location.path('/');
                 },
                 function(error){

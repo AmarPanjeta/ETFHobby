@@ -1,17 +1,24 @@
 <div class="container-fluid">
-
-  <div class="row">
+ <ul class="pager">
+        <li class="previous"><a ng-click="nazad()">&larr; Prethodna</a></li>
+        <li class="next"><a ng-click="naprijed()">Sljedeca &rarr;</a></li>
+    </ul>
+  <div class="row" style="display: flex;flex-wrap: wrap;">
     
             
-                <div class=" friend-box col-md-6"  ng-repeat="friend in friends | filter : test">
-
-                  <div class="col-sm-2 col-md-6">
+                <div class=" friend-box col-md-6"  ng-repeat="friend in friends | filter : test" >
+                  <div class="col-md-6">
+                   
                     <img ng-src="{{profileurls[friends.indexOf(friend)]}}" alt="profilna"  class="img-circle img-responsive" style="margin-top: 8px;margin-bottom: 8px;" />
                     
+                
                   </div>
+                  
 
                   <div class="col-sm-2 col-md-6">
-                    <h4><i class="glyphicon glyphicon-user"></i> <strong>{{friend.username}}</strong></h4>
+                    <h4><i class="glyphicon glyphicon-user"></i> <strong>{{friend.username}}</strong>
+                    <i>({{friend.name}} {{friend.surname}})</i>
+                    </h4>
                     <small>
                       <cite title="City, ST">
                         <i class="glyphicon glyphicon-map-marker"></i> {{friend.city}}, {{friend.country}}
@@ -35,6 +42,9 @@
             
     
   </div>
+
+ 
+
 </div>
       
 

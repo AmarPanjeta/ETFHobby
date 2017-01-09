@@ -2,6 +2,7 @@ app.controller('requestController',function(AuthService,$scope,$location,$rootSc
 	$scope.user={};
 	$scope.unfriends=[];
 	$scope.profileurls=[];
+  
 
     
 
@@ -14,7 +15,8 @@ app.controller('requestController',function(AuthService,$scope,$location,$rootSc
 
 	       $http.get("http://localhost:8080/relations/search/getfriendrequests?id="+$scope.user.id).then(function(response){
 	       	$scope.unfriends=response.data._embedded.users;
-
+          
+          $rootScope.numberOfRequests=$scope.unfriends.length;
 
             for (i=0;i<$scope.unfriends.length;i++){
             	 $log.log($scope.unfriends[i].username);
@@ -28,7 +30,7 @@ app.controller('requestController',function(AuthService,$scope,$location,$rootSc
 	  
   }
 
-$scope.approveRequest=function(id){
+$scope.approveRequest=function(id,idx){
   relation={};
   relation.user1=$scope.user._links.self.href;
   id1=$scope.user.id;
@@ -42,6 +44,13 @@ $scope.approveRequest=function(id){
     	k=response.data;
         $log.log(response.data);
          $http.put("http://localhost:8080/relations/"+k,relation);
+          
+            $log.log("izbaci");
+          $scope.unfriends.splice(idx,1);
+
+        
+         
+
     	
     })
 
@@ -50,6 +59,19 @@ $scope.approveRequest=function(id){
 
   })
 
+
+}
+
+$scope.deleteRequest=function(id,idx){
+
+  id1=$scope.user.id;
+
+  $http.get("http://localhost:8080/relations/search/deleterelation?user1="+$scope.user.id+"&user2="+id).then(function(response){
+    if(response.data>0){
+          $log.log("Uspjesno brisanje!");
+          $scope.unfriends.splice(idx,1);
+        }
+  })
 
 }
 
