@@ -299,11 +299,28 @@ padding: 0px;
 
 
 .friend-box{
-   border: 1px solid aliceblue;
+  
+  border: 1px solid aliceblue;
   box-shadow: 0 0 16px #fff;
-  margin:10px;
+  box-sizing: border-box;
 }
 
 .well{
   background-color: #18BC9C;
+}
+
+#broj-zahtjeva{
+  background-color: red;
+  color: white;
+  border-radius: 45%;
+}
+
+.pager>li>a{
+  background-color: #2C3E50;
+  color: #EBE2DF;
+  border:none;
+  }
+.pager>li>a:hover{
+  background-color: #e6e6e6;
+  color: black;
 }

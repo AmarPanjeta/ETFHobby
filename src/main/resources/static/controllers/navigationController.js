@@ -1,4 +1,4 @@
-app.controller('navigationController',function($rootScope,$location,$scope,$http,$route){
+app.controller('navigationController',function($rootScope,$location,$scope,$http,$route,$interval){
 
   $rootScope.greeting = '';
   $rootScope.token = null;
@@ -7,12 +7,15 @@ app.controller('navigationController',function($rootScope,$location,$scope,$http
   $rootScope.roleAdmin = false;
   $rootScope.roleFoo = false;
   $rootScope.test="";
+  $rootScope.numberOfRequests=0;
 
   if(localStorage.hasOwnProperty("token")){
     $rootScope.token=localStorage.getItem("token");
     $rootScope.userName=localStorage.getItem("userName");
 
   }
+
+
 
   var self = this;
 
@@ -40,5 +43,31 @@ app.controller('navigationController',function($rootScope,$location,$scope,$http
   $scope.profile=function(){
     $location.path("/");
   }
+
+
+$scope.ucitajZahtjeve=function(){
+    if($rootScope.token!==null){
+      $scope.userName=$rootScope.userName;
+      $http.get("http://localhost:8080/users/search/findByUsername?username="+$scope.userName).then(function(response){
+         $scope.user=response.data;
+       
+
+         $http.get("http://localhost:8080/relations/search/getnumberofrequests?id="+$scope.user.id).then(function(response){
+         
+          
+          $rootScope.numberOfRequests=response.data;
+
+     
+    
+         })
+    })
+    
+  }
+}
+
+  $interval($scope.ucitajZahtjeve,1000);
+$scope.imaZahtjeva=function(){
+return $rootScope.numberOfRequests!=0;
+}
 
 });

@@ -11,7 +11,9 @@
                   </div>
 
                   <div class="col-sm-2 col-md-6">
-                    <h4><i class="glyphicon glyphicon-user"></i> <strong>{{unfriend.username}}</strong></h4>
+                    <h4><i class="glyphicon glyphicon-user"></i> <strong>{{unfriend.username}}</strong>
+                    <i>({{unfriend.name}} {{unfriend.surname}})</i>
+                    </h4>
                     <small>
                       <cite title="City, ST">
                         <i class="glyphicon glyphicon-map-marker"></i> {{unfriend.city}}, {{unfriend.country}}
@@ -22,7 +24,10 @@
                             <i class="glyphicon glyphicon-gift"></i>{{unfriend.month}} {{unfriend.day}},{{unfriend.year}}</p>
                         <!-- Split button -->
                         <div class="btn-group" style="margin-bottom: 5px;">
-                            <button class="btn btn-default btn-style right" ng-click="approveRequest(unfriend.id)">Prihvati zahtjev</button>
+                            <button class="btn btn-default btn-style right" ng-click="approveRequest(unfriend.id,$index)">Prihvati zahtjev</button>
+
+                            <button class="btn btn-default btn-style right" style="margin-left: 2px;" ng-click="deleteRequest(unfriend.id,$index)">Odbij zahtjev</button>
+
                         </div>
 
                     
