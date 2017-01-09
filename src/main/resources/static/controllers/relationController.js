@@ -4,7 +4,7 @@ app.controller('relationController',function(AuthService,$scope,$location,$rootS
 	$scope.profileurls=[];
   $scope.page=0;
   $scope.numberOfFriends=0;
-    
+  $scope.size=6;  
 
 
 	  if($rootScope.token!==null){
@@ -14,7 +14,7 @@ app.controller('relationController',function(AuthService,$scope,$location,$rootS
 	       $log.log($scope.user);
 	       $log.log($scope.user.id);
 
-	       $http.get("http://localhost:8080/relations/search/getfriendsbyuserid?id="+$scope.user.id+"&page="+$scope.page+"&size=4").then(function(response){
+	       $http.get("http://localhost:8080/relations/search/getfriendsbyuserid?id="+$scope.user.id+"&page="+$scope.page+"&size="+$scope.size).then(function(response){
 	       	$scope.friends=response.data._embedded.users;
 
 
@@ -56,26 +56,26 @@ app.controller('relationController',function(AuthService,$scope,$location,$rootS
 
 $scope.naprijed=function(){
 $scope.page=$scope.page+1;
-$log.log($scope.page);
 
-if($scope.numberOfFriends%4==0){
-  if($scope.page>=$scope.numberOfFriends/4){
-    $scope.page=$scope.numberOfFriends/4-1;
+
+if($scope.numberOfFriends%$scope.size==0){
+  if($scope.page>=$scope.numberOfFriends/$scope.size){
+    $scope.page=$scope.numberOfFriends/$scope.size-1;
   }
 }else{
-  if($scope.page>=$scope.numberOfFriends/4){
-    $scope.page=Math.floor($scope.numberOfFriends/4);
+  if($scope.page>=$scope.numberOfFriends/$scope.size){
+    $scope.page=Math.floor($scope.numberOfFriends/$scope.size);
   }
 }
 
-         $http.get("http://localhost:8080/relations/search/getfriendsbyuserid?id="+$scope.user.id+"&page="+$scope.page+"&size=4").then(function(response){
+         $http.get("http://localhost:8080/relations/search/getfriendsbyuserid?id="+$scope.user.id+"&page="+$scope.page+"&size="+$scope.size).then(function(response){
           $scope.friends=response.data._embedded.users;
 
-
+            $scope.profileurls=[];
             for (i=0;i<$scope.friends.length;i++){
-               $log.log($scope.friends[i].username);
+               
            profileurl="http://localhost:8080/download?name="+$scope.friends[i].username;
-           $log.log($scope.profileurl);
+           
            $scope.profileurls.push(profileurl);
                  }
           
@@ -90,14 +90,14 @@ if($scope.page<0){
   $scope.page=0;
 }
 
-         $http.get("http://localhost:8080/relations/search/getfriendsbyuserid?id="+$scope.user.id+"&page="+$scope.page+"&size=4").then(function(response){
+         $http.get("http://localhost:8080/relations/search/getfriendsbyuserid?id="+$scope.user.id+"&page="+$scope.page+"&size="+$scope.size).then(function(response){
           $scope.friends=response.data._embedded.users;
-
+          $scope.profileurls=[];
 
             for (i=0;i<$scope.friends.length;i++){
-               $log.log($scope.friends[i].username);
+               
            profileurl="http://localhost:8080/download?name="+$scope.friends[i].username;
-           $log.log($scope.profileurl);
+           
            $scope.profileurls.push(profileurl);
                  }
          
