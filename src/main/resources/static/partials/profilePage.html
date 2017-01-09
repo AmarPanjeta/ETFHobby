@@ -29,7 +29,7 @@
         
        <div class="col-md-4 col-xs-12" style="text-align: center;">
          <div class="span2">
-         <h2 class="podnaslovi-profila">Moja slika</h2>
+         <h1 class="podnaslovi-profila">Moja slika</h1>
             
             <div class="roditelj-slike">
               <img ng-src="{{profileurl}}" class="" alt="profilna" />
@@ -42,7 +42,7 @@
 
         <div class="col-md-4 left-border">
           <div class="span2">
-            <h2 class="podnaslovi-profila">Moje informacije</h2>
+            <h1 class="podnaslovi-profila">Moje informacije</h1>
         
             <span ng-model="user.name">Ime i prezime: {{user.name}}</span><span ng-model="user.surname" style="display: inline-block;"> {{ user.surname}}</span>
             <h6 style="clear: both;">Datum rodjenja: {{user.day}}. {{user.month}} {{user.year}}.</h6>
@@ -66,7 +66,7 @@
 
       <div class="col-md-4 left-border">
         <div class="span2">
-          <h2 class="podnaslovi-profila">Moji hobiji</h2>
+          <h1 class="podnaslovi-profila">Moji hobiji</h1>
               <div class="hobby-box" >
                 <span ng-repeat="hobby in hobbies" class="hobby">
                     {{hobby.name}}

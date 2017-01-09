@@ -1,11 +1,11 @@
 <div class="container-fluid">
 
-  <div class="row">
+  <div class="row" style="display: flex;flex-wrap: wrap;">
     
             
                 <div class=" friend-box col-md-6"  ng-repeat="unfriend in unfriends | filter : test">
 
-                  <div class="col-sm-2 col-md-6">
+                  <div class="col-md-6">
                     <img ng-src="{{profileurls[unfriends.indexOf(unfriend)]}}" alt="profilna"  class="img-circle img-responsive" style="margin-top: 8px;margin-bottom: 8px;" />
                     
                   </div>
@@ -24,7 +24,8 @@
                             <i class="glyphicon glyphicon-gift"></i>{{unfriend.month}} {{unfriend.day}},{{unfriend.year}}</p>
                         <!-- Split button -->
                         <div class="btn-group" style="margin-bottom: 5px;">
-                            <button class="btn btn-default btn-style right" ng-click="sendFriendRequest(unfriend.id)">Posalji zahtjev za prijateljstvo</button>
+                            <button ng-show="nemaZahtjeva()" class="btn btn-default btn-style right" ng-click="sendFriendRequest(unfriend.id)">Posalji zahtjev za prijateljstvo</button>
+                             <button ng-show="!nemaZahtjeva()" class="btn btn-default btn-style right" ng-click="sendFriendRequest(unfriend.id)">Otkazi zahtjev za prijateljstvo</button>
                         </div>
 
                     

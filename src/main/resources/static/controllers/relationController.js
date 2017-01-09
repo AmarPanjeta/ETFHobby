@@ -1,7 +1,7 @@
 app.controller('relationController',function(AuthService,$scope,$location,$rootScope,$http,$log,ModalService){
 	$scope.user={};
 	$scope.friends=[];
-	$scope.profileurls=[];
+	
   $scope.page=0;
   $scope.numberOfFriends=0;
   $scope.size=6;  
@@ -18,12 +18,7 @@ app.controller('relationController',function(AuthService,$scope,$location,$rootS
 	       	$scope.friends=response.data._embedded.users;
 
 
-            for (i=0;i<$scope.friends.length;i++){
-            	 $log.log($scope.friends[i].username);
-			     profileurl="http://localhost:8080/download?name="+$scope.friends[i].username;
-			     $log.log($scope.profileurl);
-			     $scope.profileurls.push(profileurl);
-                 }
+       
 	       	$http.get("http://localhost:8080/relations/search/countfriends?id="+$scope.user.id).then(function(response){
             $scope.numberOfFriends=response.data;
           })
@@ -71,13 +66,7 @@ if($scope.numberOfFriends%$scope.size==0){
          $http.get("http://localhost:8080/relations/search/getfriendsbyuserid?id="+$scope.user.id+"&page="+$scope.page+"&size="+$scope.size).then(function(response){
           $scope.friends=response.data._embedded.users;
 
-            $scope.profileurls=[];
-            for (i=0;i<$scope.friends.length;i++){
-               
-           profileurl="http://localhost:8080/download?name="+$scope.friends[i].username;
-           
-           $scope.profileurls.push(profileurl);
-                 }
+  
           
          })
          $log.log($scope.page);
@@ -92,14 +81,8 @@ if($scope.page<0){
 
          $http.get("http://localhost:8080/relations/search/getfriendsbyuserid?id="+$scope.user.id+"&page="+$scope.page+"&size="+$scope.size).then(function(response){
           $scope.friends=response.data._embedded.users;
-          $scope.profileurls=[];
+       
 
-            for (i=0;i<$scope.friends.length;i++){
-               
-           profileurl="http://localhost:8080/download?name="+$scope.friends[i].username;
-           
-           $scope.profileurls.push(profileurl);
-                 }
          
          })
          $log.log($scope.page);
