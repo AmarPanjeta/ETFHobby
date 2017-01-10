@@ -58,6 +58,7 @@ public class AsyncService {
 	@Async
 	public Future<Boolean> runCalculations(long userId){
 		Date startTime = new Date();
+		double percentage;
 		logger.info("Pocinje racunanje");
 		RegisteredUser u=ur.findOne(userId);
 		if(u==null) return new AsyncResult<Boolean>(false);
@@ -65,21 +66,26 @@ public class AsyncService {
 		for(int i=0;i<users.size();i++){
 			logger.info(users.get(i).getUsername());
 			try {
-				double percentage=cosineSimilarity(userId, users.get(i).getId());
+				
 				Similarity s=sr.getusersimilarity(userId, users.get(i).getId());
 				if(s==null){
+					percentage=cosineSimilarity(userId, users.get(i).getId());
 					s=new Similarity();
 					s.setUser1(u);
 					s.setUser2(users.get(i));
 					s.setPercentage(percentage);
 					sr.save(s);
+					logger.info(Double.toString(percentage));
 				}
 				else{
-					s.setUpdated(new Date());
-					s.setPercentage(percentage);
-					sr.save(s);
+					if(s.getUpdated().before(startTime)){
+						percentage=cosineSimilarity(userId, users.get(i).getId());
+						s.setUpdated(new Date());
+						s.setPercentage(percentage);
+						sr.save(s);
+						logger.info(Double.toString(percentage));
+					}
 				}
-				logger.info(Double.toString(percentage));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

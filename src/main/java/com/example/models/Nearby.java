@@ -8,28 +8,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-
 @Entity
-public class Location {
+public class Nearby {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	private double height;
+	@ManyToOne
+	private RegisteredUser user1;
 	
-	private double width;
+	@ManyToOne
+	private RegisteredUser user2;
 	
 	@Basic(optional=false)
 	@Column(insertable=false,columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updated;
 	
-	@OneToOne
-	private RegisteredUser user;
+	private double percentage;
 
 	public long getId() {
 		return id;
@@ -39,37 +39,31 @@ public class Location {
 		this.id = id;
 	}
 
-	public double getHeight() {
-		return height;
+	public RegisteredUser getUser1() {
+		return user1;
 	}
 
-	public void setHeight(double height) {
-		this.height = height;
+	public void setUser1(RegisteredUser user1) {
+		this.user1 = user1;
 	}
 
-	public double getWidth() {
-		return width;
+	public RegisteredUser getUser2() {
+		return user2;
 	}
 
-	public void setWidth(double width) {
-		this.width = width;
+	public void setUser2(RegisteredUser user2) {
+		this.user2 = user2;
 	}
 
-	public RegisteredUser getUser() {
-		return user;
+	public double getPercentage() {
+		return percentage;
 	}
 
-	public void setUser(RegisteredUser user) {
-		this.user = user;
+	public void setPercentage(double percentage) {
+		this.percentage = percentage;
 	}
 	
-	public Date getUpdated() {
-		return updated;
+	public Nearby(){
+		
 	}
-
-	public void setUpdated(Date updated) {
-		this.updated = updated;
-	}
-
-	public Location(){}
 }

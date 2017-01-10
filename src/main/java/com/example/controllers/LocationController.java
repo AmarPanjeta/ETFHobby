@@ -42,15 +42,18 @@ public class LocationController {
 	
 	@RequestMapping("/update")
 	public int locationUpdate(@RequestBody final LocationInput location) throws ServletException{
-		Location newLocation = new Location();
-		newLocation.setHeight(location.height);
-		newLocation.setWidth(location.width);
-		
 		RegisteredUser user = ur.findOne(location.userId);
 		if(user==null){
 			throw new ServletException("User ne postoji!");
 		}
+		Location newLocation = lr.getlocationbyuser(user.getId());
+		if(newLocation==null){
+			newLocation=new Location();
+		}
+		newLocation.setHeight(location.height);
+		newLocation.setWidth(location.width);
 		newLocation.setUser(user);
+		newLocation.setUpdated(new Date());
 		
 		lr.save(newLocation);
 		
@@ -65,6 +68,7 @@ public class LocationController {
 	public void reportCurrentTime(){
 		log.info("The time is now {}", dateFormat.format(new Date()));
 	}
+	
 	
 	/*
 	@Scheduled(fixedDelay=5000)
@@ -90,8 +94,8 @@ public class LocationController {
 	@SuppressWarnings("unused")
 	private static class LocationInput{
 		public long id;
-		public long height;
-		public long width;
+		public double height;
+		public double width;
 		public long userId;
 	}
 }
