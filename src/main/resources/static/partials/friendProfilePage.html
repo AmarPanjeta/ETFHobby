@@ -14,16 +14,18 @@
               <img ng-src="{{friendToShowImage}}" class="" alt="profilna" />
             </div>
 
-          
-          </div>
-        </div>
-
-
-        <div class="col-md-4 left-border">
-          <div class="span2">
+            <button class="btn btn-default btn-style right" ng-model="friendToShow.username" style="background-color: #70293F;" ng-click="posaljiPoruku()" >Posalji poruku</button>
+            
+                      
+                      </div>
+                    </div>
+            
+            
+                    <div class="col-md-4 left-border">
+                      <div class="span2">
             <h2 class="podnaslovi-profila">Informacije</h2>
         
-            <span ng-model="friendToShow.name">Ime i prezime: {{friendToShow.name}} </span><span ng-model="user.surname" style="display: inline-block;"> {{ friendToShow.surname}}</span>
+            <span ng-model="friendToShow.name">Ime i prezime: {{friendToShow.name}} </span><span ng-model="friendToShow.surname" style="display: inline-block;"> {{ friendToShow.surname}}</span>
             <h6 style="clear: both;">Datum rodjenja: {{friendToShow.day}}. {{friendToShow.month}} {{friendToShow.year}}.</h6>
             <h6  ng-model="friendToShow.gender">Spol: {{friendToShow.gender}}</h6>
             <h6  ng-model="friendToShow.email">Email: {{friendToShow.email}}</h6>

@@ -43,10 +43,9 @@ app.controller('relationController',function(AuthService,$scope,$location,$rootS
 
 
   $scope.showFriend=function(id){
-     $rootScope.friendToShowId=id;
      $log.log("dosli");
      $log.log($rootScope.friendToShowId);
-  	 $location.path("/friend");
+  	 $location.path("/friend/"+id);
   }
 
 $scope.naprijed=function(){

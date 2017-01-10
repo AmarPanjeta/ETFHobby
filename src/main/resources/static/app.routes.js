@@ -55,6 +55,12 @@ app.config(function($routeProvider){
     resolve:{
       factory: checkRouting
     }
+  }).when("/messages/:username",{
+    templateUrl: "partials/MessagePage.html",
+    controller:"messageController",
+    resolve:{
+      factory:checkRouting
+    }
   }).otherwise("/")
 });
 

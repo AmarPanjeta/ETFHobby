@@ -66,6 +66,7 @@ body{
   padding-bottom: 70px;
 
 }
+html{height:100%}
 
 h1,
 h2,
@@ -359,4 +360,9 @@ padding: 0px;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   
 font-weight: 700;
+}
+
+.btn-success{
+  background-color: #2C3E50;
+  border:#2C3E50;
 }

@@ -1,4 +1,4 @@
-app.controller('showFriendController',function(AuthService,$scope,$location,$rootScope,$http,$log,ModalService){
+app.controller('showFriendController',function(AuthService,$scope,$location,$rootScope,$http,$log,ModalService,$routeParams){
 	$scope.friendToShow={};
 	$scope.friendToShowImage="";
 	$scope.friendshobbies={};
@@ -10,7 +10,7 @@ app.controller('showFriendController',function(AuthService,$scope,$location,$roo
 $scope.vratiPodatke=function(){
 
 
-$http.get("http://localhost:8080/users/search/getUserById?id="+$rootScope.friendToShowId).then(function(response){
+$http.get("http://localhost:8080/users/search/getUserById?id="+$routeParams.id).then(function(response){
 $scope.friendToShow=response.data;
 
 $http.get("http://localhost:8080/hobbies/search/gethobbiesbyuser?id="+$scope.friendToShow.id).then(function(response){  
@@ -28,11 +28,13 @@ $scope.friendToShowImage="http://localhost:8080/download?name="+$scope.friendToS
 
 }
 
-
-
-if($rootScope.friendToShowId!=null && $rootScope.friendToShowId!="") {
-	$scope.vratiPodatke();
+$scope.posaljiPoruku=function(){
+	$location.path("/messages/"+$scope.friendToShow.id);
 }
+
+
+$scope.vratiPodatke();
+
 
 
 //$rootScope.friendToShowId="";
