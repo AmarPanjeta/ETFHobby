@@ -1,0 +1,62 @@
+<h1>Poruke sa {{prijatelj.username}}</h1><i><legend>({{prijatelj.surname}} {{prijatelj.name}})</legend></i>
+
+
+<div class="container-fluid">
+ <ul class="pager">
+        <li class="previous"><a ng-click="nazad()">&larr; Prethodna</a></li>
+        <li class="next"><a ng-click="naprijed()">Sljedeca &rarr;</a></li>
+    </ul>
+  <div class="row" style="display: flex;flex-wrap: wrap;">
+    
+            
+                <div class=" friend-box col-md-6"  ng-repeat="message in messages" >
+               
+
+                  <div class="col-sm-2 col-md-6">
+
+                    <h4><i class="glyphicon glyphicon-user"></i> Od: <strong> {{message.status.split(" ")[0]}}</strong>
+                   
+                    </h4>
+
+                     <h4><i class="glyphicon glyphicon-user"></i> Za: <strong> {{message.status.split(" ")[1]}}</strong>
+                   
+                    </h4>
+              
+                    <p>
+                    <i class="glyphicon glyphicon-comment"></i>
+                    {{message.context}}
+                    </p>
+                        <!-- 
+                        <div class="btn-group" style="margin-bottom: 5px;">
+                            <button class="btn btn-default btn-style right" ng-click="showFriend(friend.id)" >Prikazi profil</button>
+
+                             <button class="btn btn-default btn-style right" style="margin-left: 2px;" ng-click="removeFriend(friend.id,$index)" >Obrisi</button>
+                        </div>
+                        -->
+
+                    
+                    </div>
+                </div>
+
+
+     <div class="friend-box col-md-6">
+  <label class="col-md-6 control-label" for="Overview (max 200 words)">Tekst poruke:</label><bf/>
+                      
+    <textarea class="form-control" placeholder="Tekst poruke" rows="5"  id="Overview (max 100 words)" name="Overview (max 100 words)" ng-model="message.context"></textarea>
+    <br/>
+   <button class="btn btn-default btn-style right" style="background-color: #70293F;" ng-click="posaljiPoruku()" >Posalji poruku</button>
+</div>
+       
+    
+  </div>
+
+
+ 
+
+</div>
+      
+
+   
+
+   
+
