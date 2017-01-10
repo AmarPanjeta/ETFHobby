@@ -180,10 +180,10 @@ form button[type=submit] {
 }
 .custom-form{
 	
-	border-radius: 20px;
-	box-shadow: 0 0 16px #fff;
+	/*border-radius: 20px;
+	box-shadow: 0 0 16px #fff;*/
 	overflow: hidden;
-    background: rgba(255,255,255,0.6);
+  /*background: rgba(255,255,255,0.6);*/
 }
 .input-group .form-control{
 	width: auto;
