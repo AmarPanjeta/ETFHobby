@@ -19,12 +19,12 @@ public class Location {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	private long height;
+	private double height;
 	
-	private long width;
+	private double width;
 	
 	@Basic(optional=false)
-	@Column(insertable=false,updatable=false,columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	@Column(insertable=false,columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updated;
 	
@@ -39,19 +39,19 @@ public class Location {
 		this.id = id;
 	}
 
-	public long getHeight() {
+	public double getHeight() {
 		return height;
 	}
 
-	public void setHeight(long height) {
+	public void setHeight(double height) {
 		this.height = height;
 	}
 
-	public long getWidth() {
+	public double getWidth() {
 		return width;
 	}
 
-	public void setWidth(long width) {
+	public void setWidth(double width) {
 		this.width = width;
 	}
 

@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import javax.servlet.ServletException;
 
@@ -16,7 +17,9 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.models.Location;
 import com.example.models.RegisteredUser;
+import com.example.repositories.LocationRepository;
 import com.example.repositories.UserRepository;
 
 @RestController
@@ -28,6 +31,9 @@ public class JdbcController {
 	
 	@Autowired
 	UserRepository ur;
+	
+	@Autowired
+	LocationRepository lr;
 
 	private Connection con;
 	
@@ -76,6 +82,40 @@ public class JdbcController {
 				e.printStackTrace();
 			}
 			
+		}
+	}
+	
+	@Scheduled(fixedDelay=3000)
+	public void findnearbymatches(){
+		List<Location> locations=(List<Location>) lr.findAll();
+		for(int i=0;i<locations.size();i++){
+			
+			ResultSet rs;
+			if(con!=null){
+				try {
+					PreparedStatement ps=con.prepareStatement("Select id, user_id, height, "
+							+ "width,acos(sin(radians(?))*sin(radians(height)) + cos(radians(?))*cos(radians(height))*cos(radians(width)-radians(?))) * 6371000 "
+							+ "From location Where acos(sin(radians(?))*sin(radians(height)) + cos(radians(?))*cos(radians(height))*cos(radians(width)-radians(?))) "
+							+ "* 6371000 < 100 and id!=?");
+					
+					ps.setDouble(1, locations.get(i).getHeight());
+					ps.setDouble(2, locations.get(i).getHeight());
+					ps.setDouble(3, locations.get(i).getWidth());
+					ps.setDouble(4, locations.get(i).getHeight());
+					ps.setDouble(5, locations.get(i).getHeight());
+					ps.setDouble(6, locations.get(i).getWidth());
+					ps.setLong(7, locations.get(i).getId());
+					rs=ps.executeQuery();
+					while(rs.next()){
+						System.out.println("Lokacija: "+Integer.toString(rs.getInt(1))+", korisnik: "+rs.getLong(2)+", i korisnik:"+locations.get(i).getUser().getId()+", distanca: "+rs.getDouble(5));
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
 		}
 	}
 }
