@@ -104,7 +104,9 @@ h2,h3,h4,h5,h6,span{
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700);
 
 
-
+.row{
+  background-color: transparent;
+}
 
 .pozadina{
 
@@ -331,7 +333,8 @@ padding: 0px;
 
 .friend-box{
   
-  border: 1px solid aliceblue;
+  border-left: 1px solid #70293F;
+  border-right: 1px solid #70293F;
   /*box-shadow: 0 0 16px #fff;*/
   box-sizing: border-box;
 }
@@ -365,4 +368,17 @@ font-weight: 700;
 .btn-success{
   background-color: #2C3E50;
   border:#2C3E50;
+}
+
+.well{
+  background-color: transparent;
+}
+
+.modal-header{
+  color:#333;
+}
+
+.modal-body{
+  color:#333;
+
 }

@@ -1,7 +1,7 @@
-<h1>Poruke sa {{prijatelj.username}}</h1><i><legend>({{prijatelj.surname}} {{prijatelj.name}})</legend></i>
+<h1 style="text-align: center;">Poruke sa {{prijatelj.username}}</h1>
 
 
-<div class="container-fluid">
+<div class="container-fluid ">
  <ul class="pager">
         <li class="previous"><a ng-click="nazad()">&larr; Prethodna</a></li>
         <li class="next"><a ng-click="naprijed()">Sljedeca &rarr;</a></li>
@@ -39,8 +39,8 @@
                 </div>
 
 
-     <div class="friend-box col-md-6">
-  <label class="col-md-6 control-label" for="Overview (max 200 words)">Tekst poruke:</label><bf/>
+<div class="friend-box col-md-6">
+  <label class="col-md-6 control-label" for="Overview (max 200 words)">Unesite tekst poruke:</label><bf/>
                       
     <textarea class="form-control" placeholder="Tekst poruke" rows="5"  id="Overview (max 100 words)" name="Overview (max 100 words)" ng-model="message.context"></textarea>
     <br/>
