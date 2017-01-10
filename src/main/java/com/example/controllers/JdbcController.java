@@ -18,8 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.models.Location;
+import com.example.models.Nearby;
 import com.example.models.RegisteredUser;
+import com.example.models.Similarity;
 import com.example.repositories.LocationRepository;
+import com.example.repositories.NearbyRepository;
+import com.example.repositories.SimilarityRepository;
 import com.example.repositories.UserRepository;
 
 @RestController
@@ -34,6 +38,12 @@ public class JdbcController {
 	
 	@Autowired
 	LocationRepository lr;
+	
+	@Autowired
+	SimilarityRepository sr;
+	
+	@Autowired
+	NearbyRepository nr;
 
 	private Connection con;
 	
@@ -85,6 +95,21 @@ public class JdbcController {
 		}
 	}
 	
+	@Scheduled(/*fixedRate=300000*/ fixedDelay=300000)
+	public void deleteOldNearbies(){
+		System.out.println("yaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaay");
+		if(con!=null){
+			try {
+				Statement s=con.createStatement();
+				s.executeUpdate("DELETE from nearby where extract (epoch from(CURRENT_TIMESTAMP-updated::timestamp))::integer/60>5");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+	}
+	
 	@Scheduled(fixedDelay=3000)
 	public void findnearbymatches(){
 		List<Location> locations=(List<Location>) lr.findAll();
@@ -107,6 +132,20 @@ public class JdbcController {
 					ps.setLong(7, locations.get(i).getId());
 					rs=ps.executeQuery();
 					while(rs.next()){
+						Nearby n=nr.getnearbybyusers(locations.get(i).getUser().getId(), rs.getLong(2));
+						if(n==null){
+							Similarity sim= sr.getusersimilarity(locations.get(i).getUser().getId(), rs.getLong(2));
+							if(sim!=null && sim.getPercentage()>0.5){
+								System.out.println("imamo slicnost wohooo");
+								Nearby newNearby= new Nearby();
+								newNearby.setUser2(locations.get(i).getUser());
+								newNearby.setUser1(ur.getUserById(rs.getLong(2)));
+								newNearby.setPercentage(sim.getPercentage());
+								nr.save(newNearby);
+							}
+						}
+						
+						
 						System.out.println("Lokacija: "+Integer.toString(rs.getInt(1))+", korisnik: "+rs.getLong(2)+", i korisnik:"+locations.get(i).getUser().getId()+", distanca: "+rs.getDouble(5));
 					}
 					
