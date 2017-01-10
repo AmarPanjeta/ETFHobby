@@ -1,12 +1,16 @@
 <div class="container-fluid">
+ <ul class="pager">
+        <li class="previous"><a ng-click="nazad()">&larr; Prethodna</a></li>
+        <li class="next"><a ng-click="naprijed()">Sljedeca &rarr;</a></li>
+    </ul>
 
   <div class="row" style="display: flex;flex-wrap: wrap;">
     
             
-                <div class=" friend-box col-md-6"  ng-repeat="unfriend in unfriends | filter : test">
+                <div class=" friend-box col-md-6"  ng-repeat="unfriend in unfriends track by unfriend.id">
 
                   <div class="col-md-6">
-                    <img ng-src="{{profileurls[unfriends.indexOf(unfriend)]}}" alt="profilna"  class="img-circle img-responsive" style="margin-top: 8px;margin-bottom: 8px;" />
+                    <img ng-src="http://localhost:8080/download?name={{unfriend.username}}" alt="profilna"  class="img-circle img-responsive" style="margin-top: 8px;margin-bottom: 8px;" />
                     
                   </div>
 
@@ -24,8 +28,8 @@
                             <i class="glyphicon glyphicon-gift"></i>{{unfriend.month}} {{unfriend.day}},{{unfriend.year}}</p>
                         <!-- Split button -->
                         <div class="btn-group" style="margin-bottom: 5px;">
-                            <button ng-show="nemaZahtjeva()" class="btn btn-default btn-style right" ng-click="sendFriendRequest(unfriend.id)">Posalji zahtjev za prijateljstvo</button>
-                             <button ng-show="!nemaZahtjeva()" class="btn btn-default btn-style right" ng-click="sendFriendRequest(unfriend.id)">Otkazi zahtjev za prijateljstvo</button>
+                            <button ng-show="zeroRequests[$index]==true"  class="btn btn-default btn-style right" ng-click="sendFriendRequest(unfriend.id,$index)">Posalji zahtjev za prijateljstvo</button>
+                             <button ng-show="!zeroRequests[$index]==true" class="btn btn-default btn-style right" ng-click="deleteRequest(unfriend.id,$index)">Otkazi zahtjev za prijateljstvo</button>
                         </div>
 
                     

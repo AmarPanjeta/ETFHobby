@@ -34,7 +34,10 @@ public interface RelationRepository extends PagingAndSortingRepository<Relation,
 	public int deleterelation(@Param("user1") Long user1,@Param("user2") Long user2);
 	
 	@Query("select u from RegisteredUser u WHERE u.id NOT IN (Select u2.id from Relation r,RegisteredUser u1,RegisteredUser u2 where u1.id=:id and ((r.user1=u1 and r.user2=u2) or(r.user2=u1 and r.user1=u2)) and r.type='friends') and u.id<>:id")
-	public List<RegisteredUser> getfriendscomplement(@Param("id")long id);
+	public List<RegisteredUser> getfriendscomplement(@Param("id")long id,Pageable page);
+	
+	@Query("select count(u) from RegisteredUser u WHERE u.id NOT IN (Select u2.id from Relation r,RegisteredUser u1,RegisteredUser u2 where u1.id=:id and ((r.user1=u1 and r.user2=u2) or(r.user2=u1 and r.user1=u2)) and r.type='friends') and u.id<>:id")
+	public int getnumberoffriendscomplement(@Param("id")long id);
 	
 	@Query("select u from RegisteredUser u WHERE u.id IN (Select u1.id from Relation r,RegisteredUser u1,RegisteredUser u2 where u2.id=:id and (r.user1=u1 and r.user2=u2)  and r.type='Poslan zahtjev')")
 	public List<RegisteredUser> getfriendrequests(@Param("id")long id);
@@ -46,6 +49,6 @@ public interface RelationRepository extends PagingAndSortingRepository<Relation,
 	@Query("select r.id from Relation r where ((r.user1.id=:user2 and r.user2.id=:user1))")	
 	public Long getrelationidbyusers(@Param("user1") Long user1,@Param("user2") Long user2);
 	
-	@Query("select count(r) from Relation r where ((r.user1.id=:user2 and r.user2.id=:user1) or (r.user1.id=:user1 and r.user2.id=:user2) )")
+	@Query("select count(r) from Relation r where ((r.user1.id=:user2 and r.user2.id=:user1) or (r.user1.id=:user1 and r.user2.id=:user2) and r.type='Poslan zahtjev')")
 	public int relationexist(@Param("user1") Long user1,@Param("user2") Long user2);
 }

@@ -40,7 +40,11 @@
 }
 
 body{
-  min-height: 100%;
+  background: -moz-linear-gradient(#2c3e50, silver);
+  color:white;
+  font-family:  "Roboto Slab", "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+  padding-bottom: 70px;
+
 }
 
 .carousel-inner > .item > img,

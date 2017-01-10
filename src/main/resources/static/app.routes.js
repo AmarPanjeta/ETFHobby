@@ -1,8 +1,5 @@
 app.config(function($routeProvider){
-  $routeProvider.when('/',{
-    templateUrl:"partials/homePage.html",
-    controller:'homeController'
-  }).when('/profile',{
+  $routeProvider.when('/profile',{
      templateUrl:"partials/profilePage.html",
      controller:'profileController',
      resolve:{
@@ -26,7 +23,7 @@ app.config(function($routeProvider){
   }).when("/upload",{
     templateUrl:"partials/imageUpload.html",
     controller:"fileCtrl"
-  }).when("/proba",{
+  }).when("/",{
     templateUrl:"partials/homePage1.html"
   }).when("/profile/edit",{
     templateUrl:"partials/editProfileInfo.html",

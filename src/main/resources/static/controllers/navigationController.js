@@ -1,4 +1,4 @@
-app.controller('navigationController',function($rootScope,$location,$scope,$http,$route,$interval){
+app.controller('navigationController',function($rootScope,$log,$location,$scope,$http,$route,$interval){
 
   $rootScope.greeting = '';
   $rootScope.token = null;
@@ -46,6 +46,7 @@ app.controller('navigationController',function($rootScope,$location,$scope,$http
 
 
 $scope.ucitajZahtjeve=function(){
+  $log.log("usli smo");
     if($rootScope.token!==null){
       $scope.userName=$rootScope.userName;
       $http.get("http://localhost:8080/users/search/findByUsername?username="+$scope.userName).then(function(response){
@@ -57,7 +58,7 @@ $scope.ucitajZahtjeve=function(){
           
           $rootScope.numberOfRequests=response.data;
 
-     
+        $log.log($rootScope.numberOfRequests);
     
          })
     })
@@ -65,7 +66,7 @@ $scope.ucitajZahtjeve=function(){
   }
 }
 
-  $interval($scope.ucitajZahtjeve,1000);
+$interval($scope.ucitajZahtjeve,1000);
 $scope.imaZahtjeva=function(){
 return $rootScope.numberOfRequests!=0;
 }

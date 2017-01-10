@@ -67,7 +67,10 @@
       <ul class="nav navbar-nav navbar-right menu-list">
         <li ng-show="!logged()" ng-class="{active:nav.tab('loginController')}"><a href="#/login"><span class="glyphicon glyphicon-user"></span>Login</a></li>
         <li ng-show="!logged()" ng-class="{active:nav.tab('registrationController')}"><a href="#/registration"><span class="glyphicon glyphicon-log-in"></span> Registracija</a></li>
+
+        <!--
         <li ng-show="logged()"  ng-class="{active:nav.tab('homeController')}"><a href="#/hobbies" ng-click=""><span class="glyphicon glyphicon-link"></span>Hobiji</a></li>
+        -->
         <li ng-show="logged()"  ng-class="{active:nav.tab('relationController')}"><a href="#/relations" ng-click=""><span class="glyphicons glyphicons-parents"></span>Prijatelji</a></li>
          <li ng-show="logged()"  ng-class="{active:nav.tab('addFriendController')}"><a href="#/unfriend" ng-click=""><span class="glyphicons glyphicons-parents"></span>Ne-prijatelji</a></li>
          <li ng-show="logged()"  ng-class="{active:nav.tab('requestController')}"><a href="#/request" ng-click=""><span class="glyphicons glyphicons-parents"></span>Zahtjevi <span ng-show="imaZahtjeva()" id="broj-zahtjeva">{{numberOfRequests}}</span></a></li>
